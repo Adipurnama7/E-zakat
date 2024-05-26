@@ -5,86 +5,60 @@
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Form Tambah Pembayaran Zakat</h4>
-                    <form class="forms-sample" method="post" action="{{ route('pembayaran.update', $pembayaran) }}">
+                    <h4 class="card-title">Form Edit Status Donasi </h4>
+                    <form class="forms-sample" method="post" action="{{ route('donasi.update', $donasi) }}">
                         @csrf
                         @method('PUT')
                         <h5 class="card-title1">
                             Data Pembayar</h5>
                         <div class="form-group">
-                            <label for="exampleInputName1">Nama pembayar</label>
-                            <input type="text" class="form-control" id="exampleInputName1"name="Nama_pembayar"
-                                placeholder="Nama_pembayar" value="{{ $pembayaran->Nama_pembayar }}">
+                            <label for="exampleInputName1">Nama Donatur</label>
+                            <input type="text" class="form-control" id="exampleInputName1"name="Nama_Donatur"
+                                placeholder="Nama_pembayar" value="{{ $donasi->Nama_Donatur }}">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputName1">No.Hp Pembayar</label>
+                            <label for="exampleInputName1">No.Hp</label>
                             <input type="text" class="form-control" id="exampleInputName1" name="No_Hp"
-                                placeholder="Telepon" value="{{ $pembayaran->No_Hp }}">
+                                placeholder="Telepon" value="{{ $donasi->No_Hp }}">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputName1">Alamat</label>
                             <input type="text" class="form-control" id="exampleInputName1" name="Alamat"
-                                placeholder="Alamat" value="{{ $pembayaran->Alamat }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="masjid">Masjid:</label>
-                            <select class="form-control" id="masjid" name="masjid_id">
-                                <option value="{{ $pembayaran->masjid_id }}">-- Pilih Masjid --</option>
-                                @foreach ($masjid as $msjid)
-                                    <option value="{{ $msjid->id }}">{{ $msjid->Nama_Masjid }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <h5 class="card-title1">Data Zakat</h5>
-                        <div class="form-group">
-                            <label for="zakat">Jenis Zakat:</label>
-                            <select class="form-control" id="zakat" name="zakat_id">
-                                <option value="{{ $pembayaran->zakat_id }}">-- Pilih Zakat --</option>
-                                @foreach ($zakats as $zkt)
-                                    <option value="{{ $zkt->id }}">{{ $zkt->Jenis_Zakat }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputName1">Jumlah Tanggungan</label>
-                            <input type="text" class="form-control" id="exampleInputName1" name="Jumlah_Tanggungan"
-                                placeholder="Tanggungan" value="{{ $pembayaran->Jumlah_Tanggungan }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleSelectGender">Pembayaran Beras Kg </label>
-                            <select class="form-control" name="Pembayaran_Beras" id="exampleSelectGender">
-                                <option value="{{ $pembayaran->Pembayaran_Beras }}">-- Pilih --
-                                </option>
-                                <option>2.7 </option>
-                                <option>2.5 </option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputName1">Pembayran Uang</label>
-                            <input type="text" class="form-control" id="exampleInputName1" name="Pembayaran_Uang"
-                                placeholder="jumlah uang yang di bayar  " value="{{ $pembayaran->Pembayaran_Uang }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputName1">Uang Yang Dibayarkan</label>
-                            <input type="text" class="form-control" id="exampleInputName1" name="Uang_Yang_Dibayar"
-                                placeholder="jumlah uang yang di bayar " value="{{ $pembayaran->Uang_Yang_Dibayar }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="amilName">Nama Amil:</label>
-                            <input type="text" class="form-control" id="amilName" name="amil_name"
-                                value="{{ Auth::user()->name ?? '' }}" disabled>
+                                placeholder="Alamat" value="{{ $donasi->Alamat }}">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputDate1">Tanggal:</label>
-                            <input type="date" class="form-control" id="exampleInputDate1" name= "Tanggal_pembayaran"
-                                value="{{ $pembayaran->Tanggal_pembayaran }}">
+                            <input type="date" class="form-control" id="exampleInputDate1" name= "Tanggal_Donasi"
+                                value="{{ $donasi->Tanggal_Donasi }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName1">Total Donasi</label>
+                            <input type="text" class="form-control" id="exampleInputName1" name="Total_Donasi"
+                                placeholder="Total Donasi" value="{{ $donasi->Total_Donasi }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputName1">Bukti Pembayaran</label>
+                            <input type="text" class="form-control" id="exampleInputName1" name="Bukti_Donasi"
+                                placeholder="Tidak Ada Bukti Pembayaran" value="{{ $donasi->Bukti_Donasi }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputStatus">Status Pembayaran</label>
+                            <select class="form-control" id="exampleInputStatus" name="Status_Validasi" required>
+                                @foreach ($statusOptions as $status)
+                                    <option value="{{ $status }}"
+                                        {{ $donasi->Status_Validasi == $status ? 'selected' : '' }}>
+                                        {{ $status }}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
 
 
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
                         <button type="reset" class="btn btn-secondary">Reset</button>
-                        <a href="{{ route('pembayaran.index') }}" class="btn btn-light">Cancel</a>
+                        <a href="{{ route('donasi.index') }}" class="btn btn-light">Cancel</a>
                     </form>
                 </div>
             </div>

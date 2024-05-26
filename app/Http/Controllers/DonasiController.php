@@ -15,7 +15,7 @@ class DonasiController extends Controller
     {
 
         $donasi = donasi::all();
-        return view('pages.donasi.index');
+        return view('pages.Donasi.index', compact('donasi'));
     }
 
     /**
@@ -24,7 +24,7 @@ class DonasiController extends Controller
     public function create()
     {
 
-        return view('views.index');
+        return view('views.index', compact('donasi'));
     }
 
     /**
@@ -32,6 +32,7 @@ class DonasiController extends Controller
      */
     public function store(Request $request)
     {
+
         try {
             $request->validate([
                 'Tanggal_Donasi' => 'required',
@@ -39,8 +40,7 @@ class DonasiController extends Controller
                 'No_Hp' => 'required',
                 'Alamat' => 'required',
                 'Total_Donasi' => 'required',
-                'Bukti_Donasi' => 'required',
-
+                'Bukti_Donasi' => 'required|file', // Menambahkan 'file' untuk memastikan itu adalah unggahan berkas
             ]);
 
             $donasi = new Donasi();
@@ -49,15 +49,21 @@ class DonasiController extends Controller
             $donasi->No_Hp = $request->input('No_Hp');
             $donasi->Alamat = $request->input('Alamat');
             $donasi->Total_Donasi = $request->input('Total_Donasi');
-            $donasi->Bukti_Donasi = $request->input('Bukti_Donasi');
+
+            if ($request->hasFile('Bukti_Donasi')) {
+                $file = $request->file('Bukti_Donasi');
+                $nama_file = $file->getClientOriginalName();
+                $file->move('images/', $nama_file);
+                $donasi->Bukti_Donasi = $nama_file;
+            }
+
             $donasi->save();
             return redirect()->route('donasi.index');
         } catch (\Exception $e) {
             dd($e->getMessage());
-            return redirect('views.index');
+            return redirect()->route('donasi.index'); // Gunakan nama rute untuk pengalihan
         }
     }
-
     /**
      * Display the specified resource.
      */
@@ -71,10 +77,10 @@ class DonasiController extends Controller
      */
     public function edit(donasi $donasi)
     {
+        $statusOptions = ['Tidak Ada Bukti Pembayaran', 'Valid', 'Tidak Valid'];
 
-        return view('views.index');
+        return view('pages.Donasi.edit', compact('donasi', 'statusOptions'));
     }
-
     /**
      * Update the specified resource in storage.
      */
@@ -98,8 +104,9 @@ class DonasiController extends Controller
             $donasi->Alamat = $request->input('Alamat');
             $donasi->Total_Donasi = $request->input('Total_Donasi');
             $donasi->Bukti_Donasi = $request->input('Bukti_Donasi');
+            $donasi->Status_Validasi = $request->input('Status_Validasi');
             $donasi->save();
-            return redirect()->route('donasi.index');
+            return redirect()->route('views.index');
         } catch (\Exception $e) {
             dd($e->getMessage());
             return redirect('views.index');
@@ -112,6 +119,6 @@ class DonasiController extends Controller
     public function destroy(donasi $donasi)
     {
         $donasi->delete();
-        return to_route('views.index');
+        return to_route('donasi.index');
     }
 }

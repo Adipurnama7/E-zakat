@@ -24,25 +24,15 @@
                 <span class="menu-title"> Penyaluran Zakat </span>
             </a>
         </li>
-
-        </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-                <i class="icon-grid-2 menu-icon"></i>
-                <span class="menu-title">Mustahik</span>
-                <i class="menu-arrow"></i>
+            <a class="nav-link" href="{{ route('mustahik.index') }}">
+                <i class="icon-columns menu-icon"></i>
+                <span class="menu-title"> Mustahik </span>
             </a>
-            <div class="collapse" id="tables">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="">Aktif </a></li>
-                </ul>
-            </div>
-            <div class="collapse" id="tables">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="">Tidak aktif </a></li>
-                </ul>
-            </div>
         </li>
+
+
+
         <li class="nav-item">
             <a class="nav-link" href="{{ route('donasi.index') }}">
                 <i class="icon-columns menu-icon"></i>

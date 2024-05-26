@@ -296,49 +296,52 @@
     <!-- bradcam_area_end -->
 
     <!-- ================ Donasi ================= -->
+
     <section class="contact-section">
         <div class="container">
             <div class="section-top-border">
                 <div class="row">
                     <div class="col-lg-12">
                         <form class="form-contact contact_form" enctype="multipart/form-data" method="post"
-                            action="{{ route('Masjid.store') }}"">
+                            action="{{ route('donasi.store') }}">
                             @csrf
                             <div class="row">
-                                <div class="col-sm-4" style="border: 2px solid black; border-radius: 10px;">
+                                <div class="col-sm-4 mb-3" style="border: 2px solid black; border-radius: 10px;">
                                     <div class="form-group">
                                         <input class="form-control valid" name="Nama_Donatur"
                                             placeholder="Masukkan Nama Anda" required="">
                                     </div>
                                 </div>
-                                <div class="col-sm-4" style="border: 2px solid black; border-radius: 10px;">
+                                <div class="col-sm-4 mb-3" style="border: 2px solid black; border-radius: 10px;">
                                     <div class="form-group">
-                                        <input class="form-control valid"
-                                            name="No_Hp"placeholder="Masukkan No. Handphone Anda" required=""
-                                            type="text">
+                                        <input class="form-control valid" name="Tanggal_Donasi"
+                                            placeholder="Tanggal Donasi" required="" type="date">
                                     </div>
                                 </div>
-                                <div class="col-sm-4" style="border: 2px solid black; border-radius: 10px;">
+                                <div class="col-sm-4 mb-3" style="border: 2px solid black; border-radius: 10px;">
                                     <div class="form-group">
-                                        <input class="form-control valid"
-                                            name="Alamat"placeholder="Masukkan Alamat Anda" required=""
-                                            type="text">
+                                        <input class="form-control valid" name="No_Hp"
+                                            placeholder="Masukkan No. Handphone Anda" required="" type="text">
                                     </div>
                                 </div>
-                                <div class="col-12 mt-3" style="border: 2px solid black; border-radius: 10px;">
+                                <div class="col-sm-6 mb-3" style="border: 2px solid black; border-radius: 10px;">
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="Alamat"
+                                            placeholder="Masukkan Alamat Anda" required="" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 mb-3" style="border: 2px solid black; border-radius: 10px;">
                                     <div class="form-group">
                                         <input class="form-control" name="Total_Donasi"
                                             placeholder="Jumlah Donasi Yang Anda Ingin Berikan. Contoh: 100000"
                                             type="number">
                                     </div>
                                 </div>
-
-                                <div class="col-12 mt-3">
+                                <div class="col-12 mb-3">
                                     <div class="form-group">
                                         Bukti Pengiriman Donasi
                                         <input type="file" class="form-control w-100" name="Bukti_Donasi"
-                                            required=""
-                                            style="border: 2px solid black; border-radius: 10px;"></textarea>
+                                            required="" style="border: 2px solid black; border-radius: 10px;">
                                     </div>
                                 </div>
                             </div>
@@ -348,10 +351,11 @@
                             </div>
                         </form>
                     </div>
-
                 </div>
             </div>
     </section>
+
+
 
     <!-- end donasi -->
 

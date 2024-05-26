@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+
+
 Route::get('/', function () {
     return view('index');
 });
@@ -51,8 +54,6 @@ Route::get('/muzzaki', function () {
     return view('muzzaki');
 });
 
-
-
 Route::get('/daftar', [App\Http\Controllers\Registercontroller::class, 'create']);
 Route::post('/daftar', [App\Http\Controllers\Registercontroller::class, 'store']);
 
@@ -67,8 +68,13 @@ Route::resource('dashboard', \App\Http\Controllers\DashboardControler::class);
 Route::resource('pembayaran', \App\Http\Controllers\PembayaranController::class);
 
 Route::resource('muzzaki', \App\Http\Controllers\muzzakiController::class);
+
 Route::resource('donasi', \App\Http\Controllers\DonasiController::class);
+Route::resource('mustahik', \App\Http\Controllers\mustahikController::class);
 
 Route::get('/masuk', [App\Http\Controllers\LoginController::class, 'index']);
+
+
+
 
 Route::post('/masuk', [App\Http\Controllers\LoginController::class, 'login']);

@@ -22,41 +22,51 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($donasi as $dns)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $dns->Tanggal_Donasi }}</td>
+                                        <td>{{ $dns->Nama_Donatur }}</td>
+                                        <td>{{ $dns->No_Hp }}</td>
+                                        <td>{{ $dns->Alamat }}</td>
+                                        <td>{{ $dns->Total_Donasi }}</td>
+                                        <td>
+                                            @if ($dns->Bukti_Donasi)
+                                                <a href="{{ asset('images/' . $dns->Bukti_Donasi) }}" data-lightbox="gallery"
+                                                    class="lightbox-image">
+                                                    <img src="{{ asset('images/' . $dns->Bukti_Donasi) }}"
+                                                        alt="Bukti Donasi"
+                                                        style="width: 100px; height: 100px; object-fit: cover; border-radius: 0;">
+                                                </a>
+                                            @else
+                                                Tidak ada gambar
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <div class="badge badge-warning">Pending</div>
+                                        </td>
+                                        <td>
+                                            <form class="d-inline" action="{{ route('donasi.destroy', $dns) }}"
+                                                method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-danger btn-xs"
+                                                    onclick="return confirm('Apakah anda yakin?')">Hapus</button>
+                                            </form>
+                                            <a href="{{ route('donasi.edit', $dns) }}"
+                                                class="btn btn-primary btn-xs">Edit</a>
+                                            <!-- Diganti </button> menjadi </a> -->
+                                        </td>
+                                    </tr>
+                                @endforeach
 
 
-                                <td>No</td>
-                                <td>Tanggal Donasi</td>
-                                <td>Nama Donatur</td>
-                                <td>No HP</td>
-                                <td>Alamat</td>
-                                <td>Total Donasi</td>
-                                <td>Bukti Donasi</td>
-                                <td>
-                                    <div class="badge badge-warning">Pending</div>
-                                </td>
-                                <td>
-                                    <form class="d-inline" action="" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger btn-xs"
-                                            onclick="return confirm('Apakah anda yakin?')">Hapus</button>
-                                    </form>
-                                    <a href="" class="btn btn-primary btn-xs">Edit</button>
-                                </td>
-                                </td>
+
+
+
                             </tbody>
                         </table>
                         <br>
-
-                        <div class="row">
-                            <div class="col-12 col-md-6">
-                                <p><strong>Total Beras:</strong> Kg </p>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                {{-- <p><strong>Total Uang:</strong> Rp. {{ $pmby->Total_Pembayaran }} </p> --}}
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
