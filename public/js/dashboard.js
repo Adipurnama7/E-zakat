@@ -883,16 +883,68 @@
 
 // pembayaran
 
+// document
+//     .getElementById("paymentMethod")
+//     .addEventListener("change", function () {
+//         var selectedValue = this.value;
+//         var berasPayment = document.getElementById("berasPayment");
+//         var uangPayment = document.getElementById("uangPayment");
+
+//         berasPayment.style.display =
+//             selectedValue === "Beras" ? "block" : "none";
+//         uangPayment.style.display = selectedValue === "Uang" ? "block" : "none";
+
+//         calculateTotal();
+//     });
+
+// document
+//     .getElementById("berasAmount")
+//     .addEventListener("change", calculateTotal);
+// document.getElementById("uangAmount").addEventListener("input", calculateTotal);
+// document
+//     .getElementById("jumlahMuzzaki")
+//     .addEventListener("input", calculateTotal);
+
+// function calculateTotal() {
+//     var jumlahMuzzaki =
+//         parseFloat(document.getElementById("jumlahMuzzaki").value) || 0;
+//     var paymentMethod = document.getElementById("paymentMethod").value;
+//     var totalPembayaran = document.getElementById("totalPembayaran");
+
+//     if (paymentMethod === "Beras") {
+//         var berasAmount =
+//             parseFloat(document.getElementById("berasAmount").value) || 0;
+//         totalPembayaran.value = (berasAmount * jumlahMuzzaki).toFixed(0);
+//     } else if (paymentMethod === "Uang") {
+//         var uangAmount =
+//             parseFloat(document.getElementById("uangAmount").value) || 0;
+//         totalPembayaran.value = +(uangAmount * jumlahMuzzaki).toFixed(0);
+//     } else {
+//         totalPembayaran.value = "";
+//     }
+// }
+
 document
     .getElementById("paymentMethod")
     .addEventListener("change", function () {
         var selectedValue = this.value;
         var berasPayment = document.getElementById("berasPayment");
         var uangPayment = document.getElementById("uangPayment");
+        var totalPembayaranBeras = document.getElementById(
+            "totalPembayaranBeras"
+        );
+        var totalPembayaranUang = document.getElementById(
+            "totalPembayaranUang"
+        );
 
         berasPayment.style.display =
             selectedValue === "Beras" ? "block" : "none";
         uangPayment.style.display = selectedValue === "Uang" ? "block" : "none";
+
+        totalPembayaranBeras.style.display =
+            selectedValue === "Beras" ? "block" : "none";
+        totalPembayaranUang.style.display =
+            selectedValue === "Uang" ? "block" : "none";
 
         calculateTotal();
     });
@@ -909,17 +961,23 @@ function calculateTotal() {
     var jumlahMuzzaki =
         parseFloat(document.getElementById("jumlahMuzzaki").value) || 0;
     var paymentMethod = document.getElementById("paymentMethod").value;
-    var totalPembayaran = document.getElementById("totalPembayaran");
 
     if (paymentMethod === "Beras") {
         var berasAmount =
             parseFloat(document.getElementById("berasAmount").value) || 0;
-        totalPembayaran.value = (berasAmount * jumlahMuzzaki).toFixed(0);
+        document.getElementById("totalPembayaranBerasInput").value = (
+            berasAmount * jumlahMuzzaki
+        ).toFixed(2);
+        document.getElementById("totalPembayaranUangInput").value = "";
     } else if (paymentMethod === "Uang") {
         var uangAmount =
             parseFloat(document.getElementById("uangAmount").value) || 0;
-        totalPembayaran.value = +(uangAmount * jumlahMuzzaki).toFixed(0);
+        document.getElementById("totalPembayaranUangInput").value = (
+            uangAmount * jumlahMuzzaki
+        ).toFixed(2);
+        document.getElementById("totalPembayaranBerasInput").value = "";
     } else {
-        totalPembayaran.value = "";
+        document.getElementById("totalPembayaranBerasInput").value = "";
+        document.getElementById("totalPembayaranUangInput").value = "";
     }
 }

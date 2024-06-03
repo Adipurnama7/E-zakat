@@ -14,7 +14,7 @@
                                 <div class="form-group">
                                     <label for="exampleInputName1">Jenis Zakat</label>
                                     <input type="text" class="form-control" id="exampleInputName1" name="Jenis_Zakat"
-                                        placeholder="Zakat">
+                                        placeholder="Zakat" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                                 <button type="reset" class="btn btn-secondary">Reset</button>

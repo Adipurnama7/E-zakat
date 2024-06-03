@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\LoginController;
 
 
 
@@ -23,7 +23,7 @@ Route::get('/perdagangan', function () {
 
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
 Route::get('/emas', function () {
     return view('emas');
 });
@@ -70,12 +70,15 @@ Route::resource('muzzaki', \App\Http\Controllers\muzzakiController::class);
 
 Route::resource('donasi', \App\Http\Controllers\DonasiController::class);
 Route::resource('mustahik', \App\Http\Controllers\mustahikController::class);
-Route::resource('pembayaran', \App\Http\Controllers\ZakatFitrahController::class);
-
+Route::resource('pembayaran', \App\Http\Controllers\ZakatFitrahController::class)->middleware('auth');
+Route::resource('maal', \App\Http\Controllers\maalController::class)->middleware('auth');
 
 Route::get('/masuk', [App\Http\Controllers\LoginController::class, 'index']);
 
 
+
+
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 Route::post('/masuk', [App\Http\Controllers\LoginController::class, 'login']);

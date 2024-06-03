@@ -288,6 +288,7 @@
                 <div class="col-lg-12">
                     <div class="bradcam_text text-center">
                         <h3>Donasi</h3>
+                        <h4>Nomor Rekening (3216705840038533)</h4>
                     </div>
                 </div>
             </div>
@@ -494,9 +495,6 @@
         </div>
     </div>
     <!-- Team End -->
-
-
-
 
 
     <!-- Footer Start -->

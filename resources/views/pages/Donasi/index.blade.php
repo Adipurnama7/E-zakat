@@ -43,7 +43,13 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <div class="badge badge-warning">Pending</div>
+                                            @if ($dns->Status_Validasi == 'Accepted')
+                                                <div class="badge badge-success">{{ $dns->Status_Validasi }}</div>
+                                            @elseif ($dns->Status_Validasi == 'Rejected')
+                                                <div class="badge badge-danger">{{ $dns->Status_Validasi }}</div>
+                                            @else
+                                                <div class="badge badge-warning">{{ $dns->Status_Validasi }}</div>
+                                            @endif
                                         </td>
                                         <td>
                                             <form class="d-inline" action="{{ route('donasi.destroy', $dns) }}"
@@ -55,15 +61,9 @@
                                             </form>
                                             <a href="{{ route('donasi.edit', $dns) }}"
                                                 class="btn btn-primary btn-xs">Edit</a>
-                                            <!-- Diganti </button> menjadi </a> -->
                                         </td>
                                     </tr>
                                 @endforeach
-
-
-
-
-
                             </tbody>
                         </table>
                         <br>

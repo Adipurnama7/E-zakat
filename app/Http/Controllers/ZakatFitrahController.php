@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\zakat;
 use App\Models\zakatFitrah;
 use App\Models\mesjid;
 use Illuminate\Http\Request;
@@ -15,10 +15,11 @@ class ZakatFitrahController extends Controller
     public function index()
     {
         $masjid = mesjid::all();
+        $zakats = zakat::all();
         $zakatfitrah = zakatFitrah::all();
         $totalBeras = zakatFitrah::sum('Pembayaran_Beras');
         $totalUang = zakatFitrah::sum('Pembayaran_Uang');
-        return view('pages.pembayaran.index', compact('zakatfitrah', 'masjid'));
+        return view('pages.pembayaran.index', compact('masjid', 'zakatfitrah',));
     }
 
     /**
@@ -28,7 +29,8 @@ class ZakatFitrahController extends Controller
     {
         $masjid = mesjid::all();
         $zakatfitrah = zakatFitrah::all();
-        return view('pages.pembayaran.create', compact('masjid', 'zakatfitrah'));
+        $zakats = zakat::all();
+        return view('pages.pembayaran.create', compact('masjid', 'zakatfitrah',));
     }
 
     /**
@@ -46,7 +48,8 @@ class ZakatFitrahController extends Controller
                 'Jumlah_Tanggungan' => 'required',
                 'Pembayaran_Beras' => 'nullable',
                 'Pembayaran_Uang' => 'nullable',
-                'Total_Pembayaran' => 'required',
+                'Total_Pembayaran' => 'nullable',
+                'Total_Pembayaran_Beras' => 'nullable',
             ]);
 
             $zakatfitrah = new zakatFitrah();
@@ -58,7 +61,8 @@ class ZakatFitrahController extends Controller
             $zakatfitrah->Jumlah_Tanggungan = $request->input('Jumlah_Tanggungan');
             $zakatfitrah->Pembayaran_Beras = $request->input('Pembayaran_Beras');
             $zakatfitrah->Pembayaran_Uang = $request->input('Pembayaran_Uang');
-            $zakatfitrah->Total_Pembayaran = $request->input('Total_Pembayaran'); // Pastikan nama kolom yang benar disini
+            $zakatfitrah->Total_Pembayaran = $request->input('Total_Pembayaran');
+            $zakatfitrah->Total_Pembayaran_Beras = $request->input('Total_Pembayaran_Beras'); // Pastikan nama kolom yang benar disini
             $zakatfitrah->user_id = auth()->user()->id;
             $zakatfitrah->save();
             return redirect()->route('pembayaran.index');
@@ -81,54 +85,57 @@ class ZakatFitrahController extends Controller
      * Show the form for editing the specified resource.
      */
 
-    public function edit(zakatFitrah $zakatfitrah)
+    public function edit(zakatFitrah $pembayaran)
     {
         $masjid = mesjid::all();
-        return view('pages.pembayaran.edit', compact('masjid', 'zakatfitrah'));
+        $zakats = zakat::all();
+        return view('pages.pembayaran.edit', compact('masjid', 'pembayaran', 'zakats'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, zakatFitrah $zakatfitrah)
+    public function update(Request $request, zakatFitrah $pembayaran)
     {
-        try {
-            $validatedData = $request->validate([
-                'Nama_pembayar' => 'required',
-                'Tanggal_pembayaran' => 'required',
-                'No_Hp' => 'required',
-                'masjid_id' => 'required',
-                'Alamat' => 'required',
-                'Jumlah_Tanggungan' => 'required',
-                'Pembayaran_Beras' => 'nullable',
-                'Pembayaran_Uang' => 'nullable',
-                'Total_Pembayaran' => 'required',
-            ]);
+        // try {
+        $validatedData = $request->validate([
+            'Nama_pembayar' => 'required',
+            'No_Hp' => 'required',
+            'Tanggal_pembayaran' => 'required',
+            'masjid_id' => 'required',
+            'Alamat' => 'required',
+            'Jumlah_Tanggungan' => 'required',
+            'Pembayaran_Beras' => 'nullable',
+            'Pembayaran_Uang' => 'nullable',
+            'Total_Pembayaran' => 'nullable',
+            'Total_Pembayaran_Beras' => 'nullable'
+        ]);
 
-            $zakatfitrah->Nama_Pembayar = $validatedData['Nama_pembayar'];
-            $zakatfitrah->Tanggal_pembayaran = $validatedData['Tanggal_pembayaran'];
-            $zakatfitrah->No_Hp = $validatedData['No_Hp'];
-            $zakatfitrah->Alamat = $validatedData['Alamat'];
-            $zakatfitrah->masjid_id = $validatedData['masjid_id'];
-            $zakatfitrah->Jumlah_Tanggungan = $validatedData['Jumlah_Tanggungan'];
-            $zakatfitrah->Pembayaran_Beras = $validatedData['Pembayaran_Beras'];
-            $zakatfitrah->Pembayaran_Uang = $validatedData['Pembayaran_Uang'];
-            $zakatfitrah->Total_Pembayaran = $validatedData['Total_Pembayaran'];
-            $zakatfitrah->user_id = auth()->user()->id;
-            $zakatfitrah->save();
+        $pembayaran->Nama_Pembayar = $validatedData['Nama_pembayar'];
+        $pembayaran->Tanggal_pembayaran = $validatedData['Tanggal_pembayaran'];
+        $pembayaran->No_Hp = $validatedData['No_Hp'];
+        $pembayaran->Alamat = $validatedData['Alamat'];
+        $pembayaran->masjid_id = $validatedData['masjid_id'];
+        $pembayaran->Jumlah_Tanggungan = $validatedData['Jumlah_Tanggungan'];
+        $pembayaran->Pembayaran_Beras = $validatedData['Pembayaran_Beras'];
+        $pembayaran->Pembayaran_Uang = $validatedData['Pembayaran_Uang'];
+        $pembayaran->Total_Pembayaran = $request->input('Total_Pembayaran');
+        $pembayaran->Total_Pembayaran_Beras = $request->input('Total_Pembayaran_Beras');
+        $pembayaran->save();
 
-            return redirect()->route('pembayaran.index')->with('success', 'Pembayaran berhasil diperbarui');
-        } catch (\Exception $e) {
-            return redirect()->route('pembayaran.index')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
-        }
+        return redirect()->route('pembayaran.index')->with('success', 'Pembayaran berhasil diperbarui');
+        // } catch (\Exception $e) {
+        //     dd($e->getMessage());
+        //     return redirect()->route('pembayaran.index')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        // }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(zakatFitrah $zakatfitrah)
+    public function destroy(zakatFitrah $pembayaran)
     {
-        $zakatfitrah->delete();
+        $pembayaran->delete();
         return redirect()->route('pembayaran.index')->with('success', 'Pembayaran berhasil dihapus');
     }
 }

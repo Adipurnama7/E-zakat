@@ -2,7 +2,7 @@
     <ul class="nav">
         <li class="nav-item">
             <a class="nav-link" href="{{ route('dashboard.index') }}">
-                <i class="icon-grid menu-icon"></i>
+                <i class="icon-layout menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
@@ -16,21 +16,12 @@
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="{{ route('pembayaran.index') }}">Zakat Fitrah</a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Zakat Maal</a>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('maal.index') }}">Zakat Maal</a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Zakat
-                            Perdagangan</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Zakat Emas</a>
-                    </li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Zakat
-                            Perdagangan</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Zakat
-                            Penghasilan</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Zakat
-                            Perusahaan</a></li>
                 </ul>
             </div>
         </li>
+
 
         <li class="nav-item">
             <a class="nav-link" href="{{ route('muzzaki.index') }}">
@@ -60,7 +51,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/zakat">
+            <a class="nav-link" href="{{ route('zakat.index') }}">
                 <i class="icon-paper menu-icon"></i>
                 <span class="menu-title">Zakat</span>
             </a>
