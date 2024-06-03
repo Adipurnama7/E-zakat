@@ -36,39 +36,48 @@
 
 
                         <h5 class="card-title1">Data Zakat</h5>
+
+
+
                         <div class="form-group">
-                            <label for="zakat">Jenis Zakat:</label>
-                            <select class="form-control" id="zakat" name="zakat_id">
-                                <option value="">-- Pilih Zakat --</option>
-                                @foreach ($zakats as $zkt)
-                                    <option value="{{ $zkt->id }}">{{ $zkt->Jenis_Zakat }}</option>
-                                @endforeach
-                            </select>
+                            <label for="jumlahMuzzaki">Jumlah Muzzaki</label>
+                            <input type="text" class="form-control" id="jumlahMuzzaki" name="Jumlah_Tanggungan"
+                                placeholder="Jumlah Muzzaki">
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputName1">Jumlah Tanggungan</label>
-                            <input type="text" class="form-control" id="exampleInputName1" name="Jumlah_Tanggungan"
-                                placeholder="Tanggungan">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleSelectGender">Pembayaran Beras Kg </label>
-                            <select class="form-control" name="Pembayaran_Beras" id="exampleSelectGender">
+                            <label for="paymentMethod">Metode Pembayaran</label>
+                            <select class="form-control" id="paymentMethod">
                                 <option value="">-- Pilih --</option>
-                                <option>2.7 </option>
-                                <option>2.5 </option>
+                                <option value="Beras">Beras</option>
+                                <option value="Uang">Uang</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputName1">Pembayran Uang</label>
-                            <input type="text" class="form-control" id="exampleInputName1" name="Pembayaran_Uang"
-                                placeholder="jumlah uang yang di bayar ">
+
+                        <div class="form-group" id="berasPayment" style="display: none;">
+                            <label for="berasAmount">Pembayaran Beras</label>
+                            <select class="form-control" name="Pembayaran_Beras" id="berasAmount">
+                                <option value="">-- Pilih --</option>
+                                <option value="2.5">2.5</option>
+                                <option value="2.7">2.7</option>
+                            </select>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputName1">Uang Yang Dibayarkan</label>
-                            <input type="text" class="form-control" id="exampleInputName1" name="Uang_Yang_Dibayar"
-                                placeholder="jumlah uang yang di bayar ">
+
+                        <div class="form-group" id="uangPayment" style="display: none;">
+                            <label for="uangAmount">Pembayaran Uang</label>
+                            <input type="text" class="form-control" id="uangAmount" name="Pembayaran_Uang"
+                                placeholder="Jumlah uang yang dibayar">
                         </div>
+
+                        <div class="form-group">
+                            <label for="totalPembayaran">Total Pembayaran</label>
+                            <input type="text" class="form-control" id="totalPembayaran" name="Total_Pembayaran"
+                                placeholder="Total Pembayaran" readonly>
+                        </div>
+
+
+
+
                         <div class="form-group">
                             <label for="amilName">Nama Amil:</label>
                             <input type="text" class="form-control" id="amilName" name="amil_name"

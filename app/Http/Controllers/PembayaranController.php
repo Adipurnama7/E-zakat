@@ -46,7 +46,7 @@ class PembayaranController extends Controller
                 'zakat_id' => 'required',
                 'Jumlah_Tanggungan' => 'required',
                 'Pembayaran_Beras' => 'required',
-                'Pembayaran_Uang' => 'required',
+                'Pembayaran_Uang' => 'nullable',
                 'Uang_Yang_Dibayar' => 'required',
 
 

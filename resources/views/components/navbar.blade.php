@@ -7,11 +7,31 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('pembayaran.index') }}">
-                <i class="icon-columns menu-icon"></i>
-                <span class="menu-title"> Pembayaran Zakat </span>
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <i class="icon-layout menu-icon"></i>
+                <span class="menu-title">Pembayaran Zakat</span>
+                <i class="menu-arrow"></i>
             </a>
+            <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('pembayaran.index') }}">Zakat Fitrah</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Zakat Maal</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Zakat
+                            Perdagangan</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Zakat Emas</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Zakat
+                            Perdagangan</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Zakat
+                            Penghasilan</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Zakat
+                            Perusahaan</a></li>
+                </ul>
+            </div>
         </li>
+
         <li class="nav-item">
             <a class="nav-link" href="{{ route('muzzaki.index') }}">
                 <i class="icon-columns menu-icon"></i>

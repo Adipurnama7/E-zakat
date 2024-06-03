@@ -65,12 +65,13 @@ Route::resource('penyaluran', \App\Http\Controllers\PenyaluranController::class)
 
 Route::resource('dashboard', \App\Http\Controllers\DashboardControler::class);
 
-Route::resource('pembayaran', \App\Http\Controllers\PembayaranController::class);
 
 Route::resource('muzzaki', \App\Http\Controllers\muzzakiController::class);
 
 Route::resource('donasi', \App\Http\Controllers\DonasiController::class);
 Route::resource('mustahik', \App\Http\Controllers\mustahikController::class);
+Route::resource('pembayaran', \App\Http\Controllers\ZakatFitrahController::class);
+
 
 Route::get('/masuk', [App\Http\Controllers\LoginController::class, 'index']);
 
