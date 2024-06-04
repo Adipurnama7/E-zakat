@@ -15,11 +15,12 @@
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('pembayaran.index') }}"><i
-                                class="fas fa-hand-holding-water"></i> Zakat Fitrah</a>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('pembayaran.index') }}">
+                            </i> Zakat Fitrah</a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('maal.index') }}"><i
-                                class="fas fa-money-bill"></i> Zakat Maal</a>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('maal.index') }}">
+                            </i> Zakat Maal</a>
+                        </a>
                     </li>
                 </ul>
             </div>
