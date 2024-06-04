@@ -12,7 +12,7 @@
     <header class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
             <a class="navbar-brand brand-logo d-flex align-items-center" href="dashboard">
-                <img src="/images/logo-mini.svg" class="mr-2" alt="logo" />
+                <img src="/images/logo-mini.png" class="mr-2" alt="logo" />
                 <span class="font-weight-bold d-none d-lg-inline">E-Zakat</span>
             </a>
             <a class="navbar-brand brand-logo-mini" href="dashboard">
@@ -40,8 +40,9 @@
             <ul class="navbar-nav navbar-nav-right">
 
                 <li class="nav-item nav-profile dropdown">
+                    <p>{{ auth()->user()->name }}</p>
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                        <img src="/img/Adi.jpg" alt="profile" />
+                        <img src="/img/user.jpg" alt="profile" />
                     </a>
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}"
