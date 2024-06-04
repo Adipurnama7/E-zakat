@@ -313,16 +313,17 @@
                                             placeholder="Masukkan Nama Anda" required="">
                                     </div>
                                 </div>
-                                <div class="col-sm-4 mb-3" style="border: 2px solid black; border-radius: 10px;">
-                                    <div class="form-group">
-                                        <input class="form-control valid" name="Tanggal_Donasi"
-                                            placeholder="Tanggal Donasi" required="" type="date">
-                                    </div>
-                                </div>
+
                                 <div class="col-sm-4 mb-3" style="border: 2px solid black; border-radius: 10px;">
                                     <div class="form-group">
                                         <input class="form-control valid" name="No_Hp"
                                             placeholder="Masukkan No. Handphone Anda" required="" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 mb-3" style="border: 2px solid black; border-radius: 10px;">
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="Tanggal_Donasi"
+                                            placeholder="Tanggal Donasi" required="" type="date">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 mb-3" style="border: 2px solid black; border-radius: 10px;">

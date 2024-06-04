@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class mustahik extends Model
 {
     use HasFactory;
+    public function mustahik()
+    {
+        return $this->belongsTo(mustahik::class);
+    }
     protected $table = 'mustahik';
     public $timestamps = false;
     protected $fillable = [

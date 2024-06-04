@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\mustahik;
+use App\Models\zakatFitrah;
 use Illuminate\Http\Request;
 
 class DashboardControler extends Controller
@@ -11,7 +13,15 @@ class DashboardControler extends Controller
      */
     public function index()
     {
-        return view('pages.Dashboard.dasboard');
+        $totalMustahik = Mustahik::count();
+        $totalMuzzaki = zakatFitrah::count();
+        $totalBeras = ZakatFitrah::sum('Total_Pembayaran_Beras');
+        $totalUang = ZakatFitrah::sum('Total_Pembayaran');
+        // You can add other data retrieval here as needed
+
+
+
+        return view('pages.Dashboard.dasboard', compact('totalMustahik', 'totalMuzzaki', 'totalBeras', 'totalUang'));
     }
 
     /**
