@@ -29,7 +29,7 @@
                                         <td>{{ $dns->Nama_Donatur }}</td>
                                         <td>{{ $dns->No_Hp }}</td>
                                         <td>{{ $dns->Alamat }}</td>
-                                        <td>{{ $dns->Total_Donasi }}</td>
+                                        <td>Rp. {{ number_format($dns->Total_Donasi) }}</td>
                                         <td>
                                             @if ($dns->Bukti_Donasi)
                                                 <a href="{{ asset('images/' . $dns->Bukti_Donasi) }}" data-lightbox="gallery"

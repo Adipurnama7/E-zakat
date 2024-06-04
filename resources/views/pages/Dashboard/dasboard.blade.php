@@ -14,9 +14,47 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-7 grid-margin transparent">
+                <div class="col-md-12 grid-margin transparent">
                     <div class="row">
-                        <div class="col-md-6 mb-4 stretch-card transparent">
+                        <div class="col-md-4 mb-4 stretch-card transparent">
+                            <div class="card card-tale h-100">
+                                <div class="card-body d-flex flex-column justify-content-between">
+                                    <p class="mb-3">Total Uang</p>
+                                    <p class="fs-30 mb-2">Rp. {{ number_format($totalUang) }}</p>
+                                    <p>10.00% (30 days)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4 stretch-card transparent">
+                            <div class="card card-dark-blue h-100">
+                                <div class="card-body d-flex flex-column justify-content-between">
+                                    <p class="mb-3">Total Beras</p>
+                                    <p class="fs-30 mb-2">{{ number_format($totalBeras) }} Kg</p>
+                                    <p>22.00% (30 days)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4 stretch-card transparent">
+                            <div class="card card-light-blue h-100">
+                                <div class="card-body d-flex flex-column justify-content-between">
+                                    <p class="mb-3">Total Mustahik</p>
+                                    <p class="fs-30 mb-2">{{ number_format($totalMustahik) }}</p>
+                                    <p>Semua Mustahik</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-4 stretch-card transparent">
+                            <div class="card card-light-danger h-100">
+                                <div class="card-body d-flex flex-column justify-content-between">
+                                    <p class="mb-3">Total Muzzaki</p>
+                                    <p class="fs-30 mb-2">{{ number_format($totalMuzzaki) }}</p>
+                                    <p>Muzzaki Zakat Fitrah</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4 stretch-card transparent">
                             <div class="card card-tale h-100">
                                 <div class="card-body d-flex flex-column justify-content-between">
                                     <p class="mb-3">Total Semua Uang</p>
@@ -25,7 +63,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 mb-4 stretch-card transparent">
+                        <div class="col-md-4 mb-4 stretch-card transparent">
                             <div class="card card-dark-blue h-100">
                                 <div class="card-body d-flex flex-column justify-content-between">
                                     <p class="mb-3">Total Beras</p>
@@ -35,29 +73,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
-                            <div class="card card-light-blue h-100">
-                                <div class="card-body d-flex flex-column justify-content-between">
-                                    <p class="mb-3">Total Mustahik</p>
-                                    <p class="fs-30 mb-2">{{ number_format($totalMustahik) }}</p>
-                                    <p>Semua Mustahik</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 stretch-card transparent">
-                            <div class="card card-light-danger h-100">
-                                <div class="card-body d-flex flex-column justify-content-between">
-                                    <p class="mb-3">Total Muzzaki</p>
-                                    <p class="fs-30 mb-2">{{ number_format($totalMuzzaki) }}</p>
-                                    <p>Muzzaki Zakat Fitrah</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
-
 
             <br>
             <br>
