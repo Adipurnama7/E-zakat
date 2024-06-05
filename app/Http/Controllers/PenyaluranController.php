@@ -25,7 +25,7 @@ class PenyaluranController extends Controller
     {
         $mustahik = mustahik::all();
 
-        return view('pages.penyaluran.create' , ['mustahik' => $mustahik]);
+        return view('pages.penyaluran.create', ['mustahik' => $mustahik]);
     }
 
     /**
@@ -34,11 +34,11 @@ class PenyaluranController extends Controller
     public function store(Request $request)
     {
         //
-        
-        try{
+
+        try {
 
             $validatedData = $request->validate([
-                'Nama_Penerima'  => 'required',
+                'nama_penerima'  => 'required',
                 'jumlah_penerimaan_uang'  => 'required',
                 'jumlah_penerimaan_beras'  => 'required',
                 'nama_amil'  => 'required',
@@ -52,8 +52,7 @@ class PenyaluranController extends Controller
             $penyaluran->tanggal_penerimaan = $request->input('tanggal_penerimaan');
             $penyaluran->save();
             return redirect()->route('penyaluran.index');
-            
-        } catch(\Exception $e){
+        } catch (\Exception $e) {
             dd($e->getMessage());
             return redirect('/penyaluran');
         }
@@ -80,7 +79,7 @@ class PenyaluranController extends Controller
      */
     public function update(Request $request, penyaluran $penyaluran)
     {
-        try{
+        try {
             $validatedData = $request->validate([
                 'nama_penerima'  => 'required',
                 'jumlah_penerimaan_uang'  => 'required',
@@ -96,7 +95,7 @@ class PenyaluranController extends Controller
             $penyaluran->tanggal_penerimaan = $request->input('tanggal_penerimaan');
             $penyaluran->save();
             return redirect()->route('penyaluran.index');
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             dd($e->getMessage());
             return redirect('/penyaluran');
         }
