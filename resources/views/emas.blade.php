@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>E-Zakat</title>
+    <link rel="shortcut icon" href="images/favicon.png" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -104,7 +105,7 @@
                     <div class="hero-header-inner animated zoomIn">
                         <p class="fs-4 text-dark">WELCOME TO E-Zakat</p>
                         <h2 class="display-1 mb-5 text-dark">Kalkulator Zakat</h2>
-                        <a href="index.html#Donasi" class="btn btn-primary py-3 px-5">Donasi</a>
+                        <a href="/#Donasi" class="btn btn-primary py-3 px-5">Donasi</a>
                     </div>
                 </div>
             </div>
@@ -276,7 +277,7 @@
                             E-zakat adalah sistem atau platform yang memfasilitasi proses pembayaran zakat secara
                             elektronik atau online. Ini memungkinkan individu atau perusahaan untuk memberikan zakat
                             mereka dengan mudah dan efisien melalui metode pembayaran yang disediakan.</p>
-                        <a href="" class="btn btn-primary py-2 px-4">Donasi Sekarang</a>
+                        <a href="/#Donasi" class="btn btn-primary py-2 px-4">Donasi Sekarang</a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 col-xl-3">

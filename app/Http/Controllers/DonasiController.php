@@ -58,7 +58,7 @@ class DonasiController extends Controller
             }
 
             $donasi->save();
-            return redirect()->route('donasi.index');
+            return redirect()->back();
         } catch (\Exception $e) {
             dd($e->getMessage());
             return redirect()->route('donasi.index'); // Gunakan nama rute untuk pengalihan
@@ -77,7 +77,7 @@ class DonasiController extends Controller
      */
     public function edit(donasi $donasi)
     {
-        $statusOptions = ['Tidak Ada Bukti Pembayaran', 'Valid', 'Tidak Valid'];
+        $statusOptions = ['Pending ', 'Diterima', 'Ditolak'];
 
         return view('pages.Donasi.edit', compact('donasi', 'statusOptions'));
     }
@@ -97,7 +97,7 @@ class DonasiController extends Controller
 
             ]);
 
-            $donasi = new Donasi();
+
             $donasi->Tanggal_Donasi = $request->input('Tanggal_Donasi');
             $donasi->Nama_Donatur = $request->input('Nama_Donatur');
             $donasi->No_Hp = $request->input('No_Hp');
@@ -106,10 +106,10 @@ class DonasiController extends Controller
             $donasi->Bukti_Donasi = $request->input('Bukti_Donasi');
             $donasi->Status_Validasi = $request->input('Status_Validasi');
             $donasi->save();
-            return redirect()->route('views.index');
+            return redirect()->route('donasi.index');
         } catch (\Exception $e) {
             dd($e->getMessage());
-            return redirect('views.index');
+            return redirect('donasi.index');
         }
     }
 

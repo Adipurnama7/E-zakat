@@ -16,7 +16,6 @@
                                     <th>Nama Penerima</th>
                                     <th>Alamat Penerima</th>
                                     <th>Kategori</th>
-                                    <th>Status</th>
                                     <th>Aksi</th> <!-- Add this to indicate actions column -->
                                 </tr>
                             </thead>
@@ -27,9 +26,7 @@
                                         <td>{{ $msk->Nama_Penerima }}</td>
                                         <td>{{ $msk->Alamat_Penerima }}</td>
                                         <td>{{ $msk->Kategori }}</td>
-                                        <td>
-                                            <div class="badge badge-warning">Aktif</div>
-                                        </td>
+
                                         <td> <!-- Add this to contain actions -->
                                             <form class="d-inline" action="{{ route('mustahik.destroy', $msk) }}"
                                                 method="post">

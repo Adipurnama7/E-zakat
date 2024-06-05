@@ -11,7 +11,7 @@
                         <div class="form-group">
                             <label for="exampleInputName1">Nama Masjid</label>
                             <input type="text" class="form-control" id="exampleInputName1" name="Nama_Masjid"
-                                placeholder="Masjid">
+                                placeholder="Masjid" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputName1">Alamat Masjid</label>
@@ -21,12 +21,12 @@
                         <div class="form-group">
                             <label for="exampleInputName1">RT</label>
                             <input type="text" class="form-control" id="exampleInputName1" name="RT"
-                                placeholder="RT">
+                                placeholder="RT" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputName1">RW</label>
                             <input type="text" class="form-control" id="exampleInputName1" name="RW"
-                                placeholder="RW">
+                                placeholder="RW" required>
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
                         <button type="reset" class="btn btn-secondary">Reset</button>

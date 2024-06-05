@@ -5,8 +5,8 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title1">Data Pembayaran Zakat Fitrah</h5>
-                    <a href="{{ route('pembayaran.create') }}" class="btn btn-primary btn-rounded btn-fw"
+                    <h5 class="card-title1">Data Pembayaran Zakat Maal</h5>
+                    <a href="{{ route('maal.create') }}" class="btn btn-primary btn-rounded btn-fw"
                         style="margin-bottom: 15px;">Tambah Pembayaran</a>
                     <div class="table-responsive">
                         <table class="table table-bordered">
@@ -15,11 +15,11 @@
                                     <th>No</th>
                                     <th>Tanggal Pembayaran</th>
                                     <th>Muzzaki</th>
-                                    <th>Pembayaran Beras</th>
+                                    <th>Alamat</th>
+                                    <th>No Hp</th>
+                                    <th>Jenis Zakat</th>
+                                    <th>Masjid</th>
                                     <th>Pembayaran Uang </th>
-                                    <th>Jumlah Muzzaki</th>
-                                    <th>Total Pembayaran Uang </th>
-                                    <th>Total Pembayaran Beras</th>
                                     <th>Nama Amil</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -27,36 +27,34 @@
                             <tbody>
                                 @php
                                     $totalUang = 0;
-                                    $totalBeras = 0;
                                 @endphp
-                                @foreach ($zakatfitrah as $pmby)
+                                @foreach ($zakatmaal as $pmby)
                                     @php
-                                        $totalUang += $pmby->Total_Pembayaran;
-                                        $totalBeras += $pmby->Total_Pembayaran_Beras;
+                                        $totalUang += $pmby->Pembayaran_Uang;
                                     @endphp
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $pmby->Tanggal_pembayaran }}</td>
                                         <td>{{ $pmby->Nama_pembayar }}</td>
-                                        <td>{{ number_format($pmby->Pembayaran_Beras) }} Kg</td>
+                                        <td>{{ $pmby->Alamat }}</td>
+                                        <td>{{ $pmby->No_Hp }}</td>
+                                        <td>{{ $pmby->zakat->Jenis_Zakat }}</td>
+                                        <td>{{ $pmby->masjid->Nama_Masjid }}</td>
                                         <td>Rp. {{ number_format($pmby->Pembayaran_Uang) }}</td>
-                                        <td>{{ $pmby->Jumlah_Tanggungan }}</td>
-                                        <td>Rp. {{ number_format($pmby->Total_Pembayaran) }}</td>
-                                        <td>{{ number_format($pmby->Total_Pembayaran_Beras) }} Kg</td>
                                         @if ($pmby->user)
                                             <td>{{ $pmby->user->name }}</td>
                                         @else
                                             <td>Tidak ada pengguna terkait</td>
                                         @endif
                                         <td>
-                                            <form class="d-inline" action="{{ route('pembayaran.destroy', $pmby) }}"
+                                            <form class="d-inline" action="{{ route('maal.destroy', $pmby) }}"
                                                 method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger btn-xs"
                                                     onclick="return confirm('Apakah anda yakin?')">Hapus</button>
                                             </form>
-                                            <a href="{{ route('pembayaran.edit', $pmby) }}"
+                                            <a href="{{ route('maal.edit', $pmby) }}"
                                                 class="btn btn-primary btn-xs">Edit</a>
                                         </td>
                                     </tr>
@@ -67,13 +65,9 @@
 
                         <div class="row">
                             <div class="col-12 col-md-6">
-                                <p><strong>Total Beras:</strong> {{ number_format($totalBeras) }} Kg </p>
-                            </div>
-                            <div class="col-12 col-md-6">
                                 <p><strong>Total Uang:</strong> Rp. {{ number_format($totalUang) }}</p>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

@@ -11,8 +11,8 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Pembayar</th>
-                                    <th>Alamat Pembayar</th>
+                                    <th>Nama Muzzaki</th>
+                                    <th>Alamat Muzzaki</th>
                                     <th>No. Handphone</th>
                                     <th>Nama Masjid</th>
                                     <th>Aksi</th>

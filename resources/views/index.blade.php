@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>E-Zakat</title>
+    <link rel="shortcut icon" href="images/favicon.png" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -288,6 +289,7 @@
                 <div class="col-lg-12">
                     <div class="bradcam_text text-center">
                         <h3>Donasi</h3>
+                        <h4>Nomor Rekening (3216705840038533)</h4>
                     </div>
                 </div>
             </div>
@@ -312,16 +314,17 @@
                                             placeholder="Masukkan Nama Anda" required="">
                                     </div>
                                 </div>
-                                <div class="col-sm-4 mb-3" style="border: 2px solid black; border-radius: 10px;">
-                                    <div class="form-group">
-                                        <input class="form-control valid" name="Tanggal_Donasi"
-                                            placeholder="Tanggal Donasi" required="" type="date">
-                                    </div>
-                                </div>
+
                                 <div class="col-sm-4 mb-3" style="border: 2px solid black; border-radius: 10px;">
                                     <div class="form-group">
                                         <input class="form-control valid" name="No_Hp"
                                             placeholder="Masukkan No. Handphone Anda" required="" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 mb-3" style="border: 2px solid black; border-radius: 10px;">
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="Tanggal_Donasi"
+                                            placeholder="Tanggal Donasi" required="" type="date">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 mb-3" style="border: 2px solid black; border-radius: 10px;">
@@ -494,9 +497,6 @@
         </div>
     </div>
     <!-- Team End -->
-
-
-
 
 
     <!-- Footer Start -->

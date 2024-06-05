@@ -13,6 +13,7 @@ class mustahikController extends Controller
      */
     public function index()
     {
+        $totalMustahik = Mustahik::count();
         $mustahik = mustahik::all();
         return view('pages.mustahik.index', compact('mustahik'));
     }

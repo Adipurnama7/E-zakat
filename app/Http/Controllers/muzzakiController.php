@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\pembayaran;
 use App\Models\mesjid;
 use App\models\zakat;
-
+use App\Models\zakatFitrah;
 
 class muzzakiController extends Controller
 {
@@ -17,7 +17,8 @@ class muzzakiController extends Controller
     {
         $masjid = mesjid::all();
         $zakats = zakat::all();
-        $pembayaran = pembayaran::all();
+        $pembayaran = zakatfitrah::all();
+        // dd($pembayaran);
         return view('pages.muzzaki.index', compact('pembayaran', 'masjid', 'zakats'));
     }
 

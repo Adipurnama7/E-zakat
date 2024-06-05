@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>E-Zakat</title>
+    <link rel="shortcut icon" href="images/favicon.png" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -113,7 +114,7 @@
                     <div class="hero-header-inner animated zoomIn">
                         <p class="fs-4 text-dark">WELCOME TO E-Zakat</p>
                         <h2 class="display-1 mb-5 text-dark">Kalkulator Zakat</h2>
-                        <a href="index.html#Donasi" class="btn btn-primary py-3 px-5">Donasi</a>
+                        <a href="/#Donasi" class="btn btn-primary py-3 px-5">Donasi</a>
                     </div>
                 </div>
             </div>
@@ -168,7 +169,7 @@
                     <div class='popup-zakat'>
                         <p id="zakatInfo"></p>
                         <h3 id="result"></h3>
-                        <a href='index.html#Donasi' class='popup-button' id="saveButton">Donasi</a>
+                        <a href='/#Donasi' class='popup-button' id="saveButton">Donasi</a>
                         <button class='popup-button' id="closeButton">Tutup</button>
                     </div>
                 </div>

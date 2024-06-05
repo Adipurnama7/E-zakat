@@ -5,8 +5,8 @@
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Form Tambah Pembayaran Zakat</h4>
-                    <form class="forms-sample" method="post" action="{{ route('pembayaran.store') }}">
+                    <h4 class="card-title">ambah Pembayaran Zakat Maal</h4>
+                    <form class="forms-sample" method="post" action="{{ route('maal.store') }}">
                         @csrf
                         <h5 class="card-title1">Data Pembayar</h5>
                         <div class="form-group">
@@ -33,47 +33,19 @@
                                 @endforeach
                             </select>
                         </div>
-
-                        <h5 class="card-title1">Data Zakat</h5>
                         <div class="form-group">
-                            <label for="jumlahMuzzaki">Jumlah Muzzaki</label>
-                            <input type="text" class="form-control" id="jumlahMuzzaki" name="Jumlah_Tanggungan"
-                                placeholder="Jumlah Muzzaki" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="paymentMethod">Metode Pembayaran</label>
-                            <select class="form-control" id="paymentMethod" required>
-                                <option value="">-- Pilih --</option>
-                                <option value="Beras">Beras</option>
-                                <option value="Uang">Uang</option>
+                            <label for="zakat">Jenis Zakat:</label>
+                            <select class="form-control" id="zakat" name="zakat_id" required>
+                                <option value="">-- Pilih Zakat --</option>
+                                @foreach ($zakats as $zkt)
+                                    <option value="{{ $zkt->id }}">{{ $zkt->Jenis_Zakat }}</option>
+                                @endforeach
                             </select>
                         </div>
-
-                        <div class="form-group" id="berasPayment" style="display: none;">
-                            <label for="berasAmount">Pembayaran Beras (Kg)</label>
-                            <select class="form-control" name="Pembayaran_Beras" id="berasAmount" required>
-                                <option value="">-- Pilih --</option>
-                                <option value="2.5">2.5</option>
-                                <option value="2.7">2.7</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group" id="uangPayment" style="display: none;">
-                            <label for="uangAmount">Pembayaran Uang</label>
-                            <input type="text" class="form-control" id="uangAmount" name="Pembayaran_Uang"
-                                placeholder="Jumlah uang yang dibayar" required>
-                        </div>
-
-                        <div class="form-group" id="totalPembayaranBeras" style="display: none;">
-                            <label for="totalPembayaranBerasInput">Total Pembayaran Beras</label>
-                            <input type="text" class="form-control" id="totalPembayaranBerasInput"
-                                name="Total_Pembayaran_Beras" placeholder="Total Pembayaran Beras" readonly>
-                        </div>
-
-                        <div class="form-group" id="totalPembayaranUang" style="display: none;">
-                            <label for="totalPembayaranUangInput">Total Pembayaran Uang</label>
-                            <input type="text" class="form-control" id="totalPembayaranUangInput" name="Total_Pembayaran"
-                                placeholder="Total Pembayaran Uang" readonly>
+                        <div class="form-group">
+                            <label for="exampleInputName1">Pembayaran Uang</label>
+                            <input type="text" class="form-control" id="exampleInputName1" name="Pembayaran_Uang"
+                                placeholder="Pembayaran Uang" required>
                         </div>
 
                         <div class="form-group">
@@ -89,7 +61,7 @@
 
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
                         <button type="reset" class="btn btn-secondary">Reset</button>
-                        <a href="{{ route('pembayaran.index') }}" class="btn btn-light">Cancel</a>
+                        <a href="{{ route('maal.index') }}" class="btn btn-light">Cancel</a>
                     </form>
                 </div>
             </div>
