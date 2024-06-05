@@ -24,7 +24,7 @@
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                 <span class="icon-menu"></span>
             </button>
-            <ul class="navbar-nav mr-lg-2">
+            {{-- <ul class="navbar-nav mr-lg-2">
                 <li class="nav-item nav-search d-none d-lg-block">
                     <div class="input-group">
                         <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
@@ -36,7 +36,7 @@
                             aria-label="search" aria-describedby="search">
                     </div>
                 </li>
-            </ul>
+            </ul> --}}
             <ul class="navbar-nav navbar-nav-right">
 
                 <li class="nav-item nav-profile dropdown">
@@ -50,6 +50,7 @@
                             <i class="ti-power-off text-primary"></i> Logout
                         </a>
                     </div>
+                    <form action="{{ route('logout') }}" id="logout-form" method="GET"></form>
                 </li>
                 <li class="nav-item nav-settings d-none d-lg-flex">
                     <a class="nav-link" href="#">
