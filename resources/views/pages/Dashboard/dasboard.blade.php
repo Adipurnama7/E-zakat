@@ -57,7 +57,7 @@
                         <div class="col-md-4 mb-4 stretch-card transparent">
                             <div class="card card-tale h-100">
                                 <div class="card-body d-flex flex-column justify-content-between">
-                                    <p class="mb-3">Total Semua Uang</p>
+                                    <p class="mb-3">Total Penyaluran Uang</p>
                                     <p class="fs-30 mb-2">Rp. {{ number_format($totalUang) }}</p>
                                     <p>10.00% (30 days)</p>
                                 </div>
@@ -66,7 +66,7 @@
                         <div class="col-md-4 mb-4 stretch-card transparent">
                             <div class="card card-dark-blue h-100">
                                 <div class="card-body d-flex flex-column justify-content-between">
-                                    <p class="mb-3">Total Beras</p>
+                                    <p class="mb-3">Total Penyaluran Beras </p>
                                     <p class="fs-30 mb-2">{{ number_format($totalBeras) }} Kg</p>
                                     <p>22.00% (30 days)</p>
                                 </div>
