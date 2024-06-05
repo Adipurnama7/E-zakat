@@ -37,14 +37,6 @@ Route::get('/perusahaan', function () {
 });
 
 
-Route::get('/dasboard', function () {
-    return view('pages.Dashboard.dasboard');
-});
-
-
-
-
-
 Route::get('/register', function () {
     return view('register');
 });

@@ -29,7 +29,7 @@ class LoginController extends Controller
             // Authentikasi berhasil dilakukan
 
             session(['id' => Auth::user()->name]); //buat session untuk menampilkan nama (uname) dimenu
-            return redirect('dasboard');
+            return redirect('dashboard');
         } else {
             // Authentikasi gagal dilakukan
             return redirect('/login');

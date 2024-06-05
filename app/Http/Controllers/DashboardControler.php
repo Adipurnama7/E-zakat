@@ -19,8 +19,6 @@ class DashboardControler extends Controller
         $totalUang = ZakatFitrah::sum('Total_Pembayaran');
         // You can add other data retrieval here as needed
 
-
-
         return view('pages.Dashboard.dasboard', compact('totalMustahik', 'totalMuzzaki', 'totalBeras', 'totalUang'));
     }
 

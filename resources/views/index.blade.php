@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>E-Zakat</title>
+    <link rel="shortcut icon" href="images/favicon.png" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
