@@ -24,8 +24,8 @@ class PenyaluranController extends Controller
     public function create()
     {
         $mustahik = mustahik::all();
-
-        return view('pages.penyaluran.create', ['mustahik' => $mustahik]);
+        $penyaluran = penyaluran::all();
+        return view('pages.penyaluran.create', compact('mustahik'));
     }
 
     /**
@@ -69,15 +69,16 @@ class PenyaluranController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(penyaluran $penyaluran)
+    public function edit(Penyaluran $penyaluran)
     {
-        return view('pages.penyaluran.edit', compact('penyaluran'));
+        $mustahik = Mustahik::all();
+        return view('pages.penyaluran.edit', compact('penyaluran', 'mustahik'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, penyaluran $penyaluran)
+    public function update(Request $request, Penyaluran $penyaluran)
     {
         try {
             $validatedData = $request->validate([
@@ -87,13 +88,14 @@ class PenyaluranController extends Controller
                 'nama_amil'  => 'required',
                 'tanggal_penerimaan' => 'required'
             ]);
-            $penyaluran = new penyaluran();
+
             $penyaluran->nama_penerima = $request->input('nama_penerima');
             $penyaluran->jumlah_penerimaan_uang = $request->input('jumlah_penerimaan_uang');
             $penyaluran->jumlah_penerimaan_beras = $request->input('jumlah_penerimaan_beras');
             $penyaluran->nama_amil = $request->input('nama_amil');
             $penyaluran->tanggal_penerimaan = $request->input('tanggal_penerimaan');
             $penyaluran->save();
+
             return redirect()->route('penyaluran.index');
         } catch (\Exception $e) {
             dd($e->getMessage());
@@ -104,9 +106,9 @@ class PenyaluranController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(penyaluran $penyaluran)
+    public function destroy(Penyaluran $penyaluran)
     {
         $penyaluran->delete();
-        return to_route('penyaluran.index');
+        return redirect()->route('penyaluran.index');
     }
 }

@@ -39,7 +39,7 @@
                                                 <button class="btn btn-danger btn-xs"
                                                     onclick="return confirm('Apakah anda yakin?')">Hapus</button>
                                             </form>
-                                            <a href="{{ route('mustahik.edit', $pyl) }}"
+                                            <a href="{{ route('penyaluran.edit', $pyl) }}"
                                                 class="btn btn-primary btn-xs">Edit</a>
                                         </td>
                                     </tr>
