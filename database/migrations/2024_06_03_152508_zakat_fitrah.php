@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('Tanggal_pembayaran');
             $table->string('No_Hp');
             $table->string('Alamat');
+            $table->foreignId('zakat_id')->constrained('zakat')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('masjid_id')->constrained('masjid')->cascadeOnDelete()->cascadeOnUpdate();
             $table->integer('Jumlah_Tanggungan');
             $table->double('Pembayaran_Beras');
