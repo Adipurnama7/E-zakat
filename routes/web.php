@@ -45,6 +45,8 @@ Route::get('/dasboard', function () {
 
 
 
+
+
 Route::get('/register', function () {
     return view('register');
 });
@@ -79,3 +81,4 @@ Route::get('/masuk', [App\Http\Controllers\LoginController::class, 'index']);
 
 
 Route::post('/masuk', [App\Http\Controllers\LoginController::class, 'login']);
+

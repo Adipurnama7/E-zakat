@@ -16,7 +16,10 @@ class zakatFitrah extends Model
     {
         return $this->belongsTo(mesjid::class, 'masjid_id');
     }
-
+    public function zakat()
+    {
+        return $this->belongsTo(zakat::class);
+    }
     protected $table = 'zakat_fitrah';
     public $timestamps = false;
     protected $fillable = [
@@ -24,6 +27,7 @@ class zakatFitrah extends Model
         'Tanggal_pembayaran',
         'No_Hp',
         'Alamat',
+        'zakat_id',
         'masjid_id',
         'Jumlah_Tanggungan',
         'Pembayaran_Beras',

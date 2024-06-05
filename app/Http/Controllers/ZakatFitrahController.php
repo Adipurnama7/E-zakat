@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\zakat;
 use App\Models\zakatFitrah;
 use App\Models\mesjid;
 use Illuminate\Http\Request;
@@ -15,10 +15,11 @@ class ZakatFitrahController extends Controller
     public function index()
     {
         $masjid = mesjid::all();
+        $zakats = zakat::all();
         $zakatfitrah = zakatFitrah::all();
         $totalBeras = zakatFitrah::sum('Pembayaran_Beras');
         $totalUang = zakatFitrah::sum('Pembayaran_Uang');
-        return view('pages.pembayaran.index', compact('zakatfitrah', 'masjid'));
+        return view('pages.pembayaran.index', compact('masjid', 'zakatfitrah', 'zakats'));
     }
 
     /**
@@ -28,7 +29,8 @@ class ZakatFitrahController extends Controller
     {
         $masjid = mesjid::all();
         $zakatfitrah = zakatFitrah::all();
-        return view('pages.pembayaran.create', compact('masjid', 'zakatfitrah'));
+        $zakats = zakat::all();
+        return view('pages.pembayaran.create', compact('masjid', 'zakatfitrah', 'zakats'));
     }
 
     /**
@@ -41,6 +43,7 @@ class ZakatFitrahController extends Controller
                 'Nama_pembayar' => 'required',
                 'Tanggal_pembayaran' => 'required',
                 'No_Hp' => 'required',
+                'zakat_id' => 'required',
                 'masjid_id' => 'required',
                 'Alamat' => 'required',
                 'Jumlah_Tanggungan' => 'required',
@@ -55,6 +58,7 @@ class ZakatFitrahController extends Controller
             $zakatfitrah->No_Hp = $request->input('No_Hp');
             $zakatfitrah->Alamat = $request->input('Alamat');
             $zakatfitrah->masjid_id = $request->input('masjid_id');
+            $zakatfitrah->zakat_id = $request->input('zakat_id');
             $zakatfitrah->Jumlah_Tanggungan = $request->input('Jumlah_Tanggungan');
             $zakatfitrah->Pembayaran_Beras = $request->input('Pembayaran_Beras');
             $zakatfitrah->Pembayaran_Uang = $request->input('Pembayaran_Uang');
@@ -81,10 +85,11 @@ class ZakatFitrahController extends Controller
      * Show the form for editing the specified resource.
      */
 
-    public function edit(zakatFitrah $zakatfitrah)
+    public function edit(zakatFitrah $pembayaran)
     {
         $masjid = mesjid::all();
-        return view('pages.pembayaran.edit', compact('masjid', 'zakatfitrah'));
+        $zakats = zakat::all();
+        return view('pages.pembayaran.edit', compact('masjid', 'pembayaran', 'zakats'));
     }
 
     /**
@@ -97,6 +102,7 @@ class ZakatFitrahController extends Controller
                 'Nama_pembayar' => 'required',
                 'Tanggal_pembayaran' => 'required',
                 'No_Hp' => 'required',
+                'zakat_id' => 'required',
                 'masjid_id' => 'required',
                 'Alamat' => 'required',
                 'Jumlah_Tanggungan' => 'required',
@@ -110,6 +116,7 @@ class ZakatFitrahController extends Controller
             $zakatfitrah->No_Hp = $validatedData['No_Hp'];
             $zakatfitrah->Alamat = $validatedData['Alamat'];
             $zakatfitrah->masjid_id = $validatedData['masjid_id'];
+            $zakatfitrah->zakat_id = $request->input('zakat_id');
             $zakatfitrah->Jumlah_Tanggungan = $validatedData['Jumlah_Tanggungan'];
             $zakatfitrah->Pembayaran_Beras = $validatedData['Pembayaran_Beras'];
             $zakatfitrah->Pembayaran_Uang = $validatedData['Pembayaran_Uang'];

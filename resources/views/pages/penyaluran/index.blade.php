@@ -23,30 +23,29 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ( $penyaluran as $pyl )
                                 <tr>
-                                    <td>1</td>
-                                    <td>May 15, 2015</td>
-                                    <td>Herman Beck</td>
-                                    <td>77.99</td>
-                                    <td>0</td>
-                                    <td>Admin</td>
-                                    <td>
-                                        <button class="btn btn-danger btn-sm">Hapus</button>
-                                        <button class="btn btn-primary btn-sm">Edit</button>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $pyl->tanggal_penerimaan }}</td>
+                                    <td>{{ $pyl->nama_penerima }}</td>
+                                    <td>{{ $pyl->jumlah_penerimaan_uang }}</td>
+                                    <td>{{ $pyl->jumlah_penerimaan_beras }}</td>
+                                    <td>{{ $pyl->nama_amil }}</td>
+                                    <td> <!-- Add this to contain actions -->
+                                        <form class="d-inline" action="{{ route('penyaluran.destroy', $pyl) }}"
+                                            method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger btn-xs"
+                                                onclick="return confirm('Apakah anda yakin?')">Hapus</button>
+                                        </form>
+                                        <a href="{{ route('mustahik.edit', $pyl) }}"
+                                            class="btn btn-primary btn-xs">Edit</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>July 1, 2015</td>
-                                    <td>Messsy Adam</td>
-                                    <td>245.30</td>
-                                    <td>0</td>
-                                    <td>Admin</td>
-                                    <td>
-                                        <button class="btn btn-danger btn-sm">Hapus</button>
-                                        <button class="btn btn-primary btn-sm">Edit</button>
-                                    </td>
-                                </tr>
+                        
+                                @endforeach
+                                
                             </tbody>
                         </table>
                     </div>
