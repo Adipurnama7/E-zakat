@@ -38,11 +38,11 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $pmby->Tanggal_pembayaran }}</td>
                                         <td>{{ $pmby->Nama_pembayar }}</td>
-                                        <td>{{ number_format($pmby->Pembayaran_Beras) }} Kg</td>
+                                        <td>{{ (float) $pmby->Pembayaran_Beras }} Kg</td>
                                         <td>Rp. {{ number_format($pmby->Pembayaran_Uang) }}</td>
                                         <td>{{ $pmby->Jumlah_Tanggungan }}</td>
                                         <td>Rp. {{ number_format($pmby->Total_Pembayaran) }}</td>
-                                        <td>{{ number_format($pmby->Total_Pembayaran_Beras) }} Kg</td>
+                                        <td>{{ (float) $pmby->Total_Pembayaran_Beras }} Kg</td>
                                         @if ($pmby->user)
                                             <td>{{ $pmby->user->name }}</td>
                                         @else
@@ -67,7 +67,7 @@
 
                         <div class="row">
                             <div class="col-12 col-md-6">
-                                <p><strong>Total Beras:</strong> {{ number_format($totalBeras) }} Kg </p>
+                                <p><strong>Total Beras:</strong> {{ (float) $totalBeras }} Kg</p>
                             </div>
                             <div class="col-12 col-md-6">
                                 <p><strong>Total Uang:</strong> Rp. {{ number_format($totalUang) }}</p>

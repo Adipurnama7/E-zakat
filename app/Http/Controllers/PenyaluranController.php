@@ -15,7 +15,9 @@ class PenyaluranController extends Controller
 
     {
         $penyaluran = penyaluran::all();
-        return view('pages.penyaluran.index', compact('penyaluran'));
+        $TotalPenyaluranBeras = penyaluran::sum('jumlah_penerimaan_beras');
+        $TotalPenyaluranUang = penyaluran::sum('jumlah_penerimaan_uang');
+        return view('pages.penyaluran.index', compact('penyaluran', 'TotalPenyaluranBeras', 'TotalPenyaluranUang'));
     }
 
     /**
@@ -39,8 +41,8 @@ class PenyaluranController extends Controller
 
             $validatedData = $request->validate([
                 'nama_penerima'  => 'required',
-                'jumlah_penerimaan_uang'  => 'required',
-                'jumlah_penerimaan_beras'  => 'required',
+                'jumlah_penerimaan_uang'  => 'nullable',
+                'jumlah_penerimaan_beras'  => 'nullable',
                 'nama_amil'  => 'required',
                 'tanggal_penerimaan' => 'required'
             ]);
@@ -83,8 +85,8 @@ class PenyaluranController extends Controller
         try {
             $validatedData = $request->validate([
                 'nama_penerima'  => 'required',
-                'jumlah_penerimaan_uang'  => 'required',
-                'jumlah_penerimaan_beras'  => 'required',
+                'jumlah_penerimaan_uang'  => 'nullable',
+                'jumlah_penerimaan_beras'  => 'nullable',
                 'nama_amil'  => 'required',
                 'tanggal_penerimaan' => 'required'
             ]);

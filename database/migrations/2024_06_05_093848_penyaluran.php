@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('penyaluran', function (Blueprint $table) {
             $table->id();
             $table->string('nama_penerima');
-            $table->string('jumlah_penerimaan_uang');
-            $table->string('jumlah_penerimaan_beras');
+            $table->double('jumlah_penerimaan_uang');
+            $table->double('jumlah_penerimaan_beras');
             $table->string('nama_amil');
             $table->date('tanggal_penerimaan');
             $table->timestamps();

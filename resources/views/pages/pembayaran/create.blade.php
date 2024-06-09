@@ -42,7 +42,7 @@
                         </div>
                         <div class="form-group">
                             <label for="paymentMethod">Metode Pembayaran</label>
-                            <select class="form-control" id="paymentMethod" required>
+                            <select class="form-control" id="paymentMethod" name="payment_method" required>
                                 <option value="">-- Pilih --</option>
                                 <option value="Beras">Beras</option>
                                 <option value="Uang">Uang</option>
@@ -51,7 +51,7 @@
 
                         <div class="form-group" id="berasPayment" style="display: none;">
                             <label for="berasAmount">Pembayaran Beras (Kg)</label>
-                            <select class="form-control" name="Pembayaran_Beras" id="berasAmount" required>
+                            <select class="form-control" name="Pembayaran_Beras" id="berasAmount">
                                 <option value="">-- Pilih --</option>
                                 <option value="2.5">2.5</option>
                                 <option value="2.7">2.7</option>
@@ -61,8 +61,9 @@
                         <div class="form-group" id="uangPayment" style="display: none;">
                             <label for="uangAmount">Pembayaran Uang</label>
                             <input type="text" class="form-control" id="uangAmount" name="Pembayaran_Uang"
-                                placeholder="Jumlah uang yang dibayar" required>
+                                placeholder="Jumlah uang yang dibayar">
                         </div>
+
 
                         <div class="form-group" id="totalPembayaranBeras" style="display: none;">
                             <label for="totalPembayaranBerasInput">Total Pembayaran Beras</label>
@@ -95,4 +96,54 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('paymentMethod').addEventListener('change', function() {
+            var paymentMethod = this.value;
+            var berasPayment = document.getElementById('berasPayment');
+            var uangPayment = document.getElementById('uangPayment');
+            var totalPembayaranBeras = document.getElementById('totalPembayaranBeras');
+            var totalPembayaranUang = document.getElementById('totalPembayaranUang');
+
+            if (paymentMethod === 'Beras') {
+                berasPayment.style.display = 'block';
+                uangPayment.style.display = 'none';
+                totalPembayaranBeras.style.display = 'block';
+                totalPembayaranUang.style.display = 'none';
+            } else if (paymentMethod === 'Uang') {
+                berasPayment.style.display = 'none';
+                uangPayment.style.display = 'block';
+                totalPembayaranBeras.style.display = 'none';
+                totalPembayaranUang.style.display = 'block';
+            } else {
+                berasPayment.style.display = 'none';
+                uangPayment.style.display = 'none';
+                totalPembayaranBeras.style.display = 'none';
+                totalPembayaranUang.style.display = 'none';
+            }
+        });
+
+        function calculateTotalBeras() {
+            var jumlahMuzzaki = parseFloat(document.getElementById('jumlahMuzzaki').value);
+            var berasAmount = parseFloat(document.getElementById('berasAmount').value);
+            if (!isNaN(jumlahMuzzaki) && !isNaN(berasAmount)) {
+                document.getElementById('totalPembayaranBerasInput').value = (jumlahMuzzaki * berasAmount).toFixed(2);
+            }
+        }
+
+        function calculateTotalUang() {
+            var jumlahMuzzaki = parseFloat(document.getElementById('jumlahMuzzaki').value);
+            var uangAmount = parseFloat(document.getElementById('uangAmount').value.replace(/,/g, ''));
+            if (!isNaN(jumlahMuzzaki) && !isNaN(uangAmount)) {
+                document.getElementById('totalPembayaranUangInput').value = (jumlahMuzzaki * uangAmount).toLocaleString(
+                    'en');
+            }
+        }
+
+        document.getElementById('berasAmount').addEventListener('change', calculateTotalBeras);
+        document.getElementById('jumlahMuzzaki').addEventListener('input', calculateTotalBeras);
+        document.getElementById('uangAmount').addEventListener('input', function() {
+            var value = this.value.replace(/,/g, ''); // Remove commas
+            this.value = value;
+        });
+    </script>
 @endsection

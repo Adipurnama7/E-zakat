@@ -77,9 +77,9 @@
                         <div class="form-group" id="totalPembayaranUang"
                             style="display: {{ $pembayaran->Pembayaran_Uang ? 'block' : 'none' }};">
                             <label for="totalPembayaranUangInput">Total Pembayaran Uang</label>
-                            <input type="text" class="form-control" id="totalPembayaranUangInput"
-                                name="Total_Pembayaran_Uang" placeholder="Total Pembayaran Uang"
-                                value="{{ $pembayaran->Total_Pembayaran_Uang }}" readonly>
+                            <input type="text" class="form-control" id="totalPembayaranUangInput" name="Total_Pembayaran"
+                                placeholder="Total Pembayaran Uang" value="{{ $pembayaran->Total_Pembayaran_Uang }}"
+                                readonly>
                         </div>
                         <div class="form-group">
                             <label for="amilName">Nama Amil:</label>

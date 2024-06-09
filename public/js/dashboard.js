@@ -981,3 +981,5 @@ function calculateTotal() {
         document.getElementById("totalPembayaranUangInput").value = "";
     }
 }
+
+// penyaluran

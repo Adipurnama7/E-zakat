@@ -6,45 +6,53 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Edit Penerima Zakat</h4>
-                    <form class="forms-sample" method="post" action="{{ route('penyaluran.update', $penyaluran->id) }}">
+                    <form class="forms-sample" method="post" action="{{ route('penyaluran.update', $penyaluran->id) }}"
+                        onsubmit="setNullValues()">
                         @csrf
                         @method('PUT')
                         <h5 class="card-title1">Data Penerima</h5>
                         <div class="form-group">
                             <label for="nama_penerima">Nama Penerima</label>
-                            <select id="nama_penerima" name="nama_penerima" required>
+                            <select class="form-control" id="nama_penerima" name="nama_penerima" required>
                                 @foreach ($mustahik as $msk)
                                     <option value="{{ $msk->Nama_Penerima }}"
-                                        {{ $penyaluran->nama_penerima == $msk->Nama_Penerima ? 'selected' : '' }}>
-                                        {{ $msk->Nama_Penerima }}
-                                    </option>
+                                        {{ $penyaluran->Nama_Penerima == $msk->Nama_Penerima ? 'selected' : '' }}>
+                                        {{ $msk->Nama_Penerima }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="paymentMethod">Metode Penerimaan</label>
+                            <select class="form-control" id="paymentMethod" name="payment_method" required>
+                                <option value="">-- Pilih --</option>
+                                <option value="Beras" {{ $penyaluran->jumlah_penerimaan_beras ? 'selected' : '' }}>Beras
+                                </option>
+                                <option value="Uang" {{ $penyaluran->jumlah_penerimaan_uang ? 'selected' : '' }}>Uang
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="jumlahUangGroup" style="display:none;">
                             <label for="jumlah_penerimaan_uang">Jumlah Penerimaan Uang</label>
                             <input type="text" class="form-control" id="jumlah_penerimaan_uang"
                                 name="jumlah_penerimaan_uang" placeholder="Jumlah Penerimaan Uang"
                                 value="{{ $penyaluran->jumlah_penerimaan_uang }}">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="jumlahBerasGroup" style="display:none;">
                             <label for="jumlah_penerimaan_beras">Jumlah Penerimaan Beras</label>
                             <input type="text" class="form-control" id="jumlah_penerimaan_beras"
                                 name="jumlah_penerimaan_beras" placeholder="Jumlah Penerimaan Beras"
                                 value="{{ $penyaluran->jumlah_penerimaan_beras }}">
                         </div>
-
                         <div class="form-group">
-                            <label for="nama_amil">Nama Amil:</label>
-                            <input type="text" class="form-control" id="nama_amil" name="nama_amil"
+                            <label for="amilName">Nama Amil:</label>
+                            <input type="text" class="form-control" id="amilName" name="nama_amil"
                                 value="{{ Auth::user()->name ?? '' }}" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="tanggal_penerimaan">Tanggal:</label>
-                            <input type="date" class="form-control" id="tanggal_penerimaan" name="tanggal_penerimaan"
+                            <label for="exampleInputDate1">Tanggal:</label>
+                            <input type="date" class="form-control" id="exampleInputDate1" name="tanggal_penerimaan"
                                 value="{{ $penyaluran->tanggal_penerimaan }}">
                         </div>
-
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
                         <button type="reset" class="btn btn-secondary">Reset</button>
                         <a href="{{ route('penyaluran.index') }}" class="btn btn-light">Cancel</a>
@@ -53,4 +61,46 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var paymentMethod = document.getElementById('paymentMethod').value;
+            var jumlahUangGroup = document.getElementById('jumlahUangGroup');
+            var jumlahBerasGroup = document.getElementById('jumlahBerasGroup');
+
+            if (paymentMethod === 'Uang') {
+                jumlahUangGroup.style.display = 'block';
+                jumlahBerasGroup.style.display = 'none';
+            } else if (paymentMethod === 'Beras') {
+                jumlahUangGroup.style.display = 'none';
+                jumlahBerasGroup.style.display = 'block';
+            }
+
+            document.getElementById('paymentMethod').addEventListener('change', function() {
+                paymentMethod = this.value;
+                if (paymentMethod === 'Uang') {
+                    jumlahUangGroup.style.display = 'block';
+                    jumlahBerasGroup.style.display = 'none';
+                } else if (paymentMethod === 'Beras') {
+                    jumlahUangGroup.style.display = 'none';
+                    jumlahBerasGroup.style.display = 'block';
+                } else {
+                    jumlahUangGroup.style.display = 'none';
+                    jumlahBerasGroup.style.display = 'none';
+                }
+            });
+        });
+
+        function setNullValues() {
+            var paymentMethod = document.getElementById('paymentMethod').value;
+            if (paymentMethod === 'Uang') {
+                document.getElementById('jumlah_penerimaan_beras').value = '';
+            } else if (paymentMethod === 'Beras') {
+                document.getElementById('jumlah_penerimaan_uang').value = '';
+            } else {
+                document.getElementById('jumlah_penerimaan_uang').value = '';
+                document.getElementById('jumlah_penerimaan_beras').value = '';
+            }
+        }
+    </script>
 @endsection

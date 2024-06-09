@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\maal;
+use App\Models\penyaluran;
 use App\Models\mustahik;
 use App\Models\zakatFitrah;
 use Illuminate\Http\Request;
@@ -16,11 +18,21 @@ class DashboardControler extends Controller
         $totalMustahik = Mustahik::count();
         $totalMuzzaki = zakatFitrah::count();
         $totalBeras = ZakatFitrah::sum('Total_Pembayaran_Beras');
-        $totalUang = ZakatFitrah::sum('Total_Pembayaran');
-        // You can add other data retrieval here as needed
+        $totalUangZakatFitrah = ZakatFitrah::sum('Total_Pembayaran');
+        $totalUangZakatmaal = maal::sum('Pembayaran_Uang');
+        $TotalPenyaluranBeras = penyaluran::sum('jumlah_penerimaan_beras');
+        $TotalPenyaluranUang = penyaluran::sum('jumlah_penerimaan_uang');
+        $totalSemuaUang = $totalUangZakatFitrah + $totalUangZakatmaal;
+        $totalSemuaBeras = $totalBeras - $TotalPenyaluranBeras;
 
-        return view('pages.Dashboard.dasboard', compact('totalMustahik', 'totalMuzzaki', 'totalBeras', 'totalUang'));
+        // Hitung total pengeluaran uang
+        $totalPengeluaranUang = $totalSemuaUang - $TotalPenyaluranUang;
+
+        // Anda dapat menambahkan variabel lainnya atau logika lain di sini sesuai kebutuhan
+
+        return view('pages.Dashboard.dasboard', compact('totalSemuaBeras', 'totalSemuaUang', 'totalMustahik', 'totalMuzzaki', 'totalBeras', 'totalUangZakatFitrah', 'TotalPenyaluranBeras', 'TotalPenyaluranUang', 'totalPengeluaranUang'));
     }
+
 
     /**
      * Show the form for creating a new resource.
