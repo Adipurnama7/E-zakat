@@ -192,7 +192,7 @@
                         <h1 class="mb-0">Every Muslim Needs to Realize the Importance of Sharing Happiness</h1>
                     </div>
                     <div class="col-lg-3">
-                        <a href="" class="btn btn-light py-2 px-4">Donation Now</a>
+                        <a href="#Donasi" class="btn btn-light py-2 px-4">Donation Now</a>
                     </div>
                 </div>
             </div>
@@ -240,7 +240,8 @@
                     <div class="ms-3">
                         <h4 class="mb-3">Zakat Mal</h4>
                         <p class="mb-4">Zakat is imposed on all types of assets, whether in substance or in nature
-                            the substance of the acquisition does not conflict with religious provisions. For example, mall zakat
+                            the substance of the acquisition does not conflict with religious provisions. For example,
+                            mall zakat
                             consisting of money, gold, securities, professional income, and others</p>
 
                     </div>
@@ -259,7 +260,8 @@
                 <div class="col-9 col-lg-6 border-start border-dark pb-5">
                     <div class="ms-3">
                         <h4 class="mb-3">Conditions for Zakat Fitrah and Zakat Mal </h4>
-                        <p>The conditions for assets subject to zakat mal are as follows: fully owned, halal, sufficient nisab, haul.
+                        <p>The conditions for assets subject to zakat mal are as follows: fully owned, halal, sufficient
+                            nisab, haul.
                             However, the haul requirement does not apply to agricultural, plantation and forestry zakat,
                             fisheries, income and services, and zakat rikaz.</p>
                         <br>
@@ -336,8 +338,7 @@
                                 <div class="col-sm-6 mb-3" style="border: 2px solid black; border-radius: 10px;">
                                     <div class="form-group">
                                         <input class="form-control" name="Total_Donasi"
-                                            placeholder="Amount of Donation You Want to Make.(Rp)"
-                                            type="number">
+                                            placeholder="Amount of Donation You Want to Make.(Rp)" type="number">
                                     </div>
                                 </div>
                                 <div class="col-12 mb-3">

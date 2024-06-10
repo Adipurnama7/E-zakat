@@ -62,8 +62,7 @@
                     </div>
                     <div class="col-lg-5 text-end">
                         <div class="h-100 d-inline-flex align-items-center">
-                            <a class="text-body ps-4" href="./Login/index.html"><i
-                                    class="fa fa-lock text-dark me-1"></i> login</a>
+                            <a class="text-body ps-4" href="login"><i class="fa fa-lock text-dark me-1"></i> login</a>
                         </div>
                     </div>
                 </div>
