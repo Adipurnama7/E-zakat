@@ -16,10 +16,10 @@
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="{{ route('pembayaran.index') }}">
-                            </i> Zakat Fitrah</a>
+                            </i> Fitrah Zakat</a>
                     </li>
                     <li class="nav-item"> <a class="nav-link" href="{{ route('maal.index') }}">
-                            </i> Zakat Wealth</a>
+                            </i> Maal Zakat</a>
                         </a>
                     </li>
                 </ul>
@@ -28,25 +28,25 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('muzzaki.index') }}">
                 <i class="fas fa-user-friends menu-icon"></i>
-                <span class="menu-title">Muzzaki</span>
+                <span class="menu-title"> Muzzaki </span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('penyaluran.index') }}">
                 <i class="fas fa-handshake menu-icon"></i>
-                <span class="menu-title">Zakat Distribution</span>
+                <span class="menu-title"> Zakat Distribution </span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('mustahik.index') }}">
                 <i class="fas fa-hand-holding-heart menu-icon"></i>
-                <span class="menu-title">Mustahik</span>
+                <span class="menu-title"> Mustahik </span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('donasi.index') }}">
                 <i class="fas fa-donate menu-icon"></i>
-                <span class="menu-title">Donation</span>
+                <span class="menu-title"> Donation</span>
             </a>
         </li>
         <li class="nav-item">
