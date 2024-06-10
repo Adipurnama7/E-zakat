@@ -82,22 +82,22 @@
                 <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                     <div class="navbar-nav ms-lg-auto mx-xl-auto">
                         <a href="/" class="nav-item nav-link">Home</a>
-                        <a href="/#Tentang" class="nav-item nav-link">Tentang</a>
-                        <a href="/#Informasi" class="nav-item nav-link">Informasi</a>
-                        <a href="/#Donasi" class="nav-item nav-link">Donasi</a>
+                        <a href="/#Tentang" class="nav-item nav-link">About</a>
+                        <a href="/#Informasi" class="nav-item nav-link">Information</a>
+                        <a href="/#Donasi" class="nav-item nav-link">Donation</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Kalkulator</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Calculator</a>
                             <div class="dropdown-menu m-0 rounded-0">
-                                <a href="zakat_penghasilan" class="dropdown-item">Zakat Penghasilan</a>
-                                <a href="zakat_maal" class="dropdown-item">Zakat Maal</a>
-                                <a href="perdagangan" class="dropdown-item">Zakat Perdagangan</a>
-                                <a href="emas" class="dropdown-item">Zakat Emas</a>
-                                <a href="tabungan" class="dropdown-item">Zakat Tabungan</a>
-                                <a href="perusahaan" class="dropdown-item">Zakat Perusahaan</a>
+                                <a href="zakat_penghasilan" class="dropdown-item">Income Zakat</a>
+                                <a href="zakat_maal" class="dropdown-item">Mal Zakat</a>
+                                <a href="perdagangan" class="dropdown-item">Comercial Zakat</a>
+                                <a href="emas" class="dropdown-item">Gold Zakat</a>
+                                <a href="tabungan" class="dropdown-item">Savings Zakat</a>
+                                <a href="perusahaan" class="dropdown-item">Company Zakat</a>
                             </div>
                         </div>
                         <a href="/#Team" class="nav-item nav-link">Our Team </a>
-                        <a href="/#Kontak" class="nav-item nav-link">Kontak</a>
+                        <a href="/#Kontak" class="nav-item nav-link">Contact</a>
                     </div>
                 </div>
             </nav>
