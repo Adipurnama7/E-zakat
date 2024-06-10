@@ -7,14 +7,14 @@
                 <div class="col-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Form Tambah Jenis Zakat</h4>
+                            <h4 class="card-title">Add Zakat Type Form</h4>
                             <form class="forms-sample" method="post" action="{{ route('zakat.store') }}">
                                 @csrf
-                                <h5 class="card-title1">Data Zakat</h5>
+                                <h5 class="card-title1">Zakat Data</h5>
                                 <div class="form-group">
-                                    <label for="exampleInputName1">Jenis Zakat</label>
+                                    <label for="exampleInputName1">Zakat Type</label>
                                     <input type="text" class="form-control" id="exampleInputName1" name="Jenis_Zakat"
-                                        placeholder="Zakat" required>
+                                        placeholder="Zakat Type" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                                 <button type="reset" class="btn btn-secondary">Reset</button>

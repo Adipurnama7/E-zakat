@@ -80,23 +80,25 @@
                 </button>
                 <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                     <div class="navbar-nav ms-lg-auto mx-xl-auto">
-                        <div class="navbar-nav ms-lg-auto mx-xl-auto">
-                            <a class="text-body mb-2" href="/#Home"><i
-                                    class="fa fa-check text-primary me-2"></i>Home</a>
-                            <a class="text-body mb-2" href="/#Tentang"><i
-                                    class="fa fa-check text-primary me-2"></i>Tentang</a>
-                            <a class="text-body mb-2" href="/#Donasi"><i
-                                    class="fa fa-check text-primary me-2"></i>Donasi</a>
-                            <a class="text-body mb-2" href="/#Informasi"><i
-                                    class="fa fa-check text-primary me-2"></i>Info</a>
-                            <a class="text-body mb-2" href="/#Kalkulator"><i
-                                    class="fa fa-check text-primary me-2"></i>Kalkulator</a>
-                            <a class="text-body mb-2" href="/#Team"><i class="fa fa-check text-primary me-2"></i>Our
-                                Team</a>
-                            <a class="text-body mb-2" href="/#Kontak"><i
-                                    class="fa fa-check text-primary me-2"></i>Kontak</a>
+                        <a href="/" class="nav-item nav-link">Home</a>
+                        <a href="/#Tentang" class="nav-item nav-link">Tentang</a>
+                        <a href="/#Informasi" class="nav-item nav-link">Informasi</a>
+                        <a href="/#Donasi" class="nav-item nav-link">Donasi</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Kalkulator</a>
+                            <div class="dropdown-menu m-0 rounded-0">
+                                <a href="zakat_penghasilan" class="dropdown-item">Zakat Penghasilan</a>
+                                <a href="zakat_maal" class="dropdown-item">Zakat Maal</a>
+                                <a href="perdagangan" class="dropdown-item">Zakat Perdagangan</a>
+                                <a href="emas" class="dropdown-item">Zakat Emas</a>
+                                <a href="tabungan" class="dropdown-item">Zakat Tabungan</a>
+                                <a href="perusahaan" class="dropdown-item">Zakat Perusahaan</a>
+                            </div>
                         </div>
+                        <a href="/#Team" class="nav-item nav-link">Our Team </a>
+                        <a href="/#Kontak" class="nav-item nav-link">Kontak</a>
                     </div>
+                </div>
             </nav>
         </div>
     </div>

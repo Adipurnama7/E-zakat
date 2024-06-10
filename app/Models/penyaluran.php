@@ -8,5 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class penyaluran extends Model
 {
     use HasFactory;
+    public function penyaluran()
+    {
+        return $this->belongsTo(mustahik::class);
+    }
     protected $table = "penyaluran";
 }

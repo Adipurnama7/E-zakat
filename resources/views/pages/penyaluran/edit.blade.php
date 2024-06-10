@@ -5,68 +5,208 @@
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Form Tambah Pembayaran Zakat</h4>
-                    <form class="forms-sample">
-                        <h5 class="card-title1">Data Pembayar</h5>
+                    <h4 class="card-title">Edit Zakat Recipient</h4>
+                    <form class="forms-sample" method="post" action="{{ route('penyaluran.update', $penyaluran->id) }}"
+                        onsubmit="setNullValues()">
+                        @csrf
+                        @method('PUT')
+                        <h5 class="card-title1">Recipient Data</h5>
                         <div class="form-group">
-                            <label for="exampleInputName1">Nama pembayar</label>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputName1">No.Hp Pembayar</label>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Telepon">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputName1">Alamat</label>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Alamat">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleSelectGender">mesjid</label>
-                            <select class="form-control" id="exampleSelectGender">
-                                <option>al huda</option>
-                                <option>al jabar</option>
-                            </select>
-                        </div>
-                        <h5 class="card-title1">Data Zakat</h5>
-                        <div class="form-group">
-                            <label for="exampleSelectGender">Zakat</label>
-                            <select class="form-control" id="exampleSelectGender">
-                                <option>Zakat Fitrah</option>
-                                <option>Zakat maal</option>
+                            <label for="nama_penerima">Recipient's Name</label>
+                            <select class="form-control" id="nama_penerima" name="nama_penerima" required>
+                                @foreach ($mustahik as $msk)
+                                    <option value="{{ $msk->Nama_Penerima }}"
+                                        {{ $penyaluran->Nama_Penerima == $msk->Nama_Penerima ? 'selected' : '' }}>
+                                        {{ $msk->Nama_Penerima }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputName1">Jumlah Tanggungan</label>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Tanggungan">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleSelectGender">Pembayaran Beras</label>
-                            <select class="form-control" id="exampleSelectGender">
-                                <option>2,7 Kg</option>
-                                <option>2,5 Kg</option>
+                            <label for="paymentMethod">Receiving Method</label>
+                            <select class="form-control" id="paymentMethod" name="payment_method" required>
+                                <option value="">-- Select --</option>
+                                <option value="Beras" {{ $penyaluran->jumlah_penerimaan_beras ? 'selected' : '' }}>Rice
+                                </option>
+                                <option value="Uang" {{ $penyaluran->jumlah_penerimaan_uang ? 'selected' : '' }}>Cash
+                                </option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputName1">Uang yang di bayarkan</label>
-                            <input type="text" class="form-control" id="exampleInputName1"
-                                placeholder="jumlah uang yang di bayar ">
+                        <div class="form-group" id="jumlahUangGroup" style="display:none;">
+                            <label for="jumlah_penerimaan_uang">Cash Receipt Amount</label>
+                            <input type="text" class="form-control" id="jumlah_penerimaan_uang"
+                                name="jumlah_penerimaan_uang" placeholder="Cash Receipt Amount"
+                                value="{{ $penyaluran->jumlah_penerimaan_uang }}">
+                        </div>
+                        <div class="form-group" id="jumlahBerasGroup" style="display:none;">
+                            <label for="jumlah_penerimaan_beras">Rice Receipt Amount</label>
+                            <input type="text" class="form-control" id="jumlah_penerimaan_beras"
+                                name="jumlah_penerimaan_beras" placeholder="Rice Receipt Amount"
+                                value="{{ $penyaluran->jumlah_penerimaan_beras }}">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputName1">Nama Amil</label>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Amil ">
+                            <label for="amilName">Amil's Name:</label>
+                            <input type="text" class="form-control" id="amilName" name="nama_amil"
+                                value="{{ Auth::user()->name ?? '' }}" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputDate1">Tanggal:</label>
-                            <input type="date" class="form-control" id="exampleInputDate1">
+                            <label for="exampleInputDate1">Date:</label>
+                            <input type="date" class="form-control" id="exampleInputDate1" name="tanggal_penerimaan"
+                                value="{{ $penyaluran->tanggal_penerimaan }}">
                         </div>
-
-
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
                         <button type="reset" class="btn btn-secondary">Reset</button>
-                        <a href="pembayaran" class="btn btn-light">Cancel</a>
+                        <a href="{{ route('penyaluran.index') }}" class="btn btn-light">Cancel</a>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var paymentMethod = document.getElementById('paymentMethod').value;
+            var jumlahUangGroup = document.getElementById('jumlahUangGroup');
+            var jumlahBerasGroup = document.getElementById('jumlahBerasGroup');
+
+            if (paymentMethod === 'Uang') {
+                jumlahUangGroup.style.display = 'block';
+                jumlahBerasGroup.style.display = 'none';
+            } else if (paymentMethod === 'Beras') {
+                jumlahUangGroup.style.display = 'none';
+                jumlahBerasGroup.style.display = 'block';
+            }
+
+            document.getElementById('paymentMethod').addEventListener('change', function() {
+                paymentMethod = this.value;
+                if (paymentMethod === 'Uang') {
+                    jumlahUangGroup.style.display = 'block';
+                    jumlahBerasGroup.style.display = 'none';
+                } else if (paymentMethod === 'Beras') {
+                    jumlahUangGroup.style.display = 'none';
+                    jumlahBerasGroup.style.display = 'block';
+                } else {
+                    jumlahUangGroup.style.display = 'none';
+                    jumlahBerasGroup.style.display = 'none';
+                }
+            });
+        });
+
+        function setNullValues() {
+            var paymentMethod = document.getElementById('paymentMethod').value;
+            if (paymentMethod === 'Uang') {
+                document.getElementById('jumlah_penerimaan_beras').value = '';
+            } else if (paymentMethod === 'Beras') {
+                document.getElementById('jumlah_penerimaan_uang').value = '';
+            } else {
+                document.getElementById('jumlah_penerimaan_uang').value = '';
+                document.getElementById('jumlah_penerimaan_beras').value = '';
+            }
+        }
+    </script>
+@endsection
+@extends('layouts.main')
+
+@section('content')
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Edit Zakat Recipient</h4>
+                    <form class="forms-sample" method="post" action="{{ route('penyaluran.update', $penyaluran->id) }}"
+                        onsubmit="setNullValues()">
+                        @csrf
+                        @method('PUT')
+                        <h5 class="card-title1">Recipient Data</h5>
+                        <div class="form-group">
+                            <label for="nama_penerima">Recipient's Name</label>
+                            <select class="form-control" id="nama_penerima" name="nama_penerima" required>
+                                @foreach ($mustahik as $msk)
+                                    <option value="{{ $msk->Nama_Penerima }}"
+                                        {{ $penyaluran->Nama_Penerima == $msk->Nama_Penerima ? 'selected' : '' }}>
+                                        {{ $msk->Nama_Penerima }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="paymentMethod">Receiving Method</label>
+                            <select class="form-control" id="paymentMethod" name="payment_method" required>
+                                <option value="">-- Select --</option>
+                                <option value="Beras" {{ $penyaluran->jumlah_penerimaan_beras ? 'selected' : '' }}>Rice
+                                </option>
+                                <option value="Uang" {{ $penyaluran->jumlah_penerimaan_uang ? 'selected' : '' }}>Cash
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="jumlahUangGroup" style="display:none;">
+                            <label for="jumlah_penerimaan_uang">Cash Receipt Amount</label>
+                            <input type="text" class="form-control" id="jumlah_penerimaan_uang"
+                                name="jumlah_penerimaan_uang" placeholder="Cash Receipt Amount"
+                                value="{{ $penyaluran->jumlah_penerimaan_uang }}">
+                        </div>
+                        <div class="form-group" id="jumlahBerasGroup" style="display:none;">
+                            <label for="jumlah_penerimaan_beras">Rice Receipt Amount</label>
+                            <input type="text" class="form-control" id="jumlah_penerimaan_beras"
+                                name="jumlah_penerimaan_beras" placeholder="Rice Receipt Amount"
+                                value="{{ $penyaluran->jumlah_penerimaan_beras }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="amilName">Amil's Name:</label>
+                            <input type="text" class="form-control" id="amilName" name="nama_amil"
+                                value="{{ Auth::user()->name ?? '' }}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputDate1">Date:</label>
+                            <input type="date" class="form-control" id="exampleInputDate1" name="tanggal_penerimaan"
+                                value="{{ $penyaluran->tanggal_penerimaan }}">
+                        </div>
+                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                        <a href="{{ route('penyaluran.index') }}" class="btn btn-light">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var paymentMethod = document.getElementById('paymentMethod').value;
+            var jumlahUangGroup = document.getElementById('jumlahUangGroup');
+            var jumlahBerasGroup = document.getElementById('jumlahBerasGroup');
+
+            if (paymentMethod === 'Uang') {
+                jumlahUangGroup.style.display = 'block';
+                jumlahBerasGroup.style.display = 'none';
+            } else if (paymentMethod === 'Beras') {
+                jumlahUangGroup.style.display = 'none';
+                jumlahBerasGroup.style.display = 'block';
+            }
+
+            document.getElementById('paymentMethod').addEventListener('change', function() {
+                paymentMethod = this.value;
+                if (paymentMethod === 'Uang') {
+                    jumlahUangGroup.style.display = 'block';
+                    jumlahBerasGroup.style.display = 'none';
+                } else if (paymentMethod === 'Beras') {
+                    jumlahUangGroup.style.display = 'none';
+                    jumlahBerasGroup.style.display = 'block';
+                } else {
+                    jumlahUangGroup.style.display = 'none';
+                    jumlahBerasGroup.style.display = 'none';
+                }
+            });
+        });
+
+        function setNullValues() {
+            var paymentMethod = document.getElementById('paymentMethod').value;
+            if (paymentMethod === 'Uang') {
+                document.getElementById('jumlah_penerimaan_beras').value = '';
+            } else if (paymentMethod === 'Beras') {
+                document.getElementById('jumlah_penerimaan_uang').value = '';
+            } else {
+                document.getElementById('jumlah_penerimaan_uang').value = '';
+                document.getElementById('jumlah_penerimaan_beras').value = '';
+            }
+        }
+    </script>
 @endsection

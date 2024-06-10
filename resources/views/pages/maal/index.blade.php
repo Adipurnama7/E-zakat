@@ -1,3 +1,6 @@
+Sure, here is the translated version of your Blade template into English:
+
+```blade
 @extends('layouts.main')
 
 @section('content')
@@ -5,23 +8,23 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title1">Data Pembayaran Zakat Maal</h5>
+                    <h5 class="card-title1">Zakat Maal Payment Data</h5>
                     <a href="{{ route('maal.create') }}" class="btn btn-primary btn-rounded btn-fw"
-                        style="margin-bottom: 15px;">Tambah Pembayaran</a>
+                        style="margin-bottom: 15px;">Add Payment</a>
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Tanggal Pembayaran</th>
+                                    <th>Payment (Date)</th>
                                     <th>Muzzaki</th>
-                                    <th>Alamat</th>
-                                    <th>No Hp</th>
-                                    <th>Jenis Zakat</th>
-                                    <th>Masjid</th>
-                                    <th>Pembayaran Uang </th>
-                                    <th>Nama Amil</th>
-                                    <th>Aksi</th>
+                                    <th>Address</th>
+                                    <th>Phone Number</th>
+                                    <th>Type of Zakat</th>
+                                    <th>Mosque</th>
+                                    <th>Payment (Money)</th>
+                                    <th>Amil</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,7 +47,7 @@
                                         @if ($pmby->user)
                                             <td>{{ $pmby->user->name }}</td>
                                         @else
-                                            <td>Tidak ada pengguna terkait</td>
+                                            <td>No related user</td>
                                         @endif
                                         <td>
                                             <form class="d-inline" action="{{ route('maal.destroy', $pmby) }}"
@@ -52,7 +55,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger btn-xs"
-                                                    onclick="return confirm('Apakah anda yakin?')">Hapus</button>
+                                                    onclick="return confirm('Are you sure?')">Delete</button>
                                             </form>
                                             <a href="{{ route('maal.edit', $pmby) }}"
                                                 class="btn btn-primary btn-xs">Edit</a>
@@ -65,7 +68,7 @@
 
                         <div class="row">
                             <div class="col-12 col-md-6">
-                                <p><strong>Total Uang:</strong> Rp. {{ number_format($totalUang) }}</p>
+                                <p><strong>Total Money:</strong> Rp. {{ number_format($totalUang) }}</p>
                             </div>
                         </div>
                     </div>
@@ -74,3 +77,4 @@
         </div>
     </div>
 @endsection
+```

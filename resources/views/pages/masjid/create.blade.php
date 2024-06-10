@@ -1,22 +1,23 @@
 @extends('layouts.main')
+
 @section('content')
     <div class="row">
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Form Tambah Kerjasama Mesjid</h4>
+                    <h4 class="card-title">Add New Mosque Partnership</h4>
                     <form class="forms-sample" method="post" action="{{ route('Masjid.store') }}">
                         @csrf
-                        <h5 class="card-title1">Data Masjid</h5>
+                        <h5 class="card-title1">Mosque Data</h5>
                         <div class="form-group">
-                            <label for="exampleInputName1">Nama Masjid</label>
+                            <label for="exampleInputName1">Mosque Name</label>
                             <input type="text" class="form-control" id="exampleInputName1" name="Nama_Masjid"
-                                placeholder="Masjid" required>
+                                placeholder="Mosque" required>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputName1">Alamat Masjid</label>
+                            <label for="exampleInputName1">Mosque Address</label>
                             <input type="text" class="form-control" id="exampleInputName1" name="Alamat"
-                                placeholder="Alamat">
+                                placeholder="Address">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputName1">RT</label>

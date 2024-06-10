@@ -37,7 +37,6 @@ Route::get('/perusahaan', function () {
 });
 
 
-
 Route::get('/register', function () {
     return view('register');
 });
@@ -69,10 +68,12 @@ Route::resource('maal', \App\Http\Controllers\maalController::class)->middleware
 Route::get('/masuk', [App\Http\Controllers\LoginController::class, 'index']);
 
 
+// Route::group(['middleware' => ['auth', 'superadmin']], function () {
+//     Route::get('/superadmin/dashboard', [SuperadminController::class, 'index'])->name('superadmin.dashboard');
+// });
 
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 Route::post('/masuk', [App\Http\Controllers\LoginController::class, 'login']);
-

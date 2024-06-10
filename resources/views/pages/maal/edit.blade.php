@@ -1,3 +1,6 @@
+Sure, here is the translated version of your Blade template into English:
+
+```blade
 @extends('layouts.main')
 
 @section('content')
@@ -5,29 +8,29 @@
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Form Edit Pembayaran Zakat Maal</h4>
+                    <h4 class="card-title">Zakat Maal Payment Form</h4>
 
                     <form class="forms-sample" method="post" action="{{ route('maal.update', $zakatmaal->id) }}">
                         @csrf
                         @method('PUT')
-                        <h5 class="card-title1">Data Pembayar</h5>
+                        <h5 class="card-title1">Payer Information</h5>
                         <div class="form-group">
-                            <label for="exampleInputName1">Nama pembayar</label>
+                            <label for="exampleInputName1">Payer Name</label>
                             <input type="text" class="form-control" id="exampleInputName1" name="Nama_pembayar"
-                                placeholder="Nama Pembayar" value="{{ $zakatmaal->Nama_pembayar }}">
+                                placeholder="Payer Name" value="{{ $zakatmaal->Nama_pembayar }}">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputName1">No.Hp Pembayar</label>
+                            <label for="exampleInputName1">Payer Phone Number</label>
                             <input type="text" class="form-control" id="exampleInputName1" name="No_Hp"
-                                placeholder="Telepon" value="{{ $zakatmaal->No_Hp }}">
+                                placeholder="Phone Number" value="{{ $zakatmaal->No_Hp }}">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputName1">Alamat</label>
+                            <label for="exampleInputName1">Address</label>
                             <input type="text" class="form-control" id="exampleInputName1" name="Alamat"
-                                placeholder="Alamat" value="{{ $zakatmaal->Alamat }}">
+                                placeholder="Address" value="{{ $zakatmaal->Alamat }}">
                         </div>
                         <div class="form-group">
-                            <label for="masjid">Masjid:</label>
+                            <label for="masjid">Mosque:</label>
                             <select class="form-control" id="masjid" name="masjid_id">
                                 @foreach ($masjid as $msjid)
                                     <option value="{{ $msjid->id }}"
@@ -37,9 +40,9 @@
                                 @endforeach
                             </select>
                         </div>
-                        <h5 class="card-title1">Data Zakat</h5>
+                        <h5 class="card-title1">Zakat Information</h5>
                         <div class="form-group">
-                            <label for="zakat">Jenis Zakat:</label>
+                            <label for="zakat">Type of Zakat:</label>
                             <select class="form-control" id="zakat" name="zakat_id">
                                 @foreach ($zakats as $zkt)
                                     <option value="{{ $zkt->id }}"
@@ -50,37 +53,37 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="jumlahTanggungan">Jumlah Tanggungan</label>
+                            <label for="jumlahTanggungan">Number of Dependents</label>
                             <input type="text" class="form-control" id="jumlahTanggungan" name="Jumlah_Tanggungan"
-                                placeholder="Tanggungan" value="{{ $zakatmaal->Jumlah_Tanggungan }}">
+                                placeholder="Dependents" value="{{ $zakatmaal->Jumlah_Tanggungan }}">
                         </div>
                         <div class="form-group">
-                            <label for="zakat">Jenis Zakat:</label>
+                            <label for="zakat">Type of Zakat:</label>
                             <select class="form-control" id="zakat" name="zakat_id">
-                                <option value="{{ $pembayaran->zakat_id }}" selected>
-                                    {{ $pembayaran->zakat->Jenis_Zakat ?? '-- Pilih Zakat --' }}</option>
+                                <option value="{{ $zakatmaal->zakat_id }}" selected>
+                                    {{ $zakatmaal->zakat->Jenis_Zakat ?? '-- Select Zakat --' }}</option>
                                 @foreach ($zakats as $zkt)
                                     <option value="{{ $zkt->id }}">{{ $zkt->Jenis_Zakat }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputName1">Pembayaran Uang</label>
+                            <label for="exampleInputName1">Money Payment</label>
                             <input type="text" class="form-control" id="exampleInputName1" name="Pembayaran_Uang"
-                                placeholder="Jumlah uang yang dibayar" value="{{ $zakatmaal->Pembayaran_Uang }}">
+                                placeholder="Amount of money paid" value="{{ $zakatmaal->Pembayaran_Uang }}">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputName1">Total Pembayaran</label>
+                            <label for="exampleInputName1">Total Payment</label>
                             <input type="text" class="form-control" id="exampleInputName1" name="Total_Pembayaran"
-                                placeholder="Total Pembayaran" value="{{ $zakatmaal->Total_Pembayaran }}">
+                                placeholder="Total Payment" value="{{ $zakatmaal->Total_Pembayaran }}">
                         </div>
                         <div class="form-group">
-                            <label for="amilName">Nama Amil:</label>
+                            <label for="amilName">Amil Name:</label>
                             <input type="text" class="form-control" id="amilName" name="amil_name"
                                 value="{{ Auth::user()->name ?? '' }}" disabled>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputDate1">Tanggal:</label>
+                            <label for="exampleInputDate1">Date:</label>
                             <input type="date" class="form-control" id="exampleInputDate1" name="Tanggal_pembayaran"
                                 value="{{ $zakatmaal->Tanggal_pembayaran }}">
                         </div>
@@ -94,3 +97,4 @@
         </div>
     </div>
 @endsection
+```
