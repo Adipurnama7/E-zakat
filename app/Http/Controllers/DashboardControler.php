@@ -15,7 +15,7 @@ class DashboardControler extends Controller
     {
         $totalMustahik = Mustahik::count();
         $totalMuzzaki = zakatFitrah::count();
-        $totalBeras = ZakatFitrah::sum('Total_Pembayaran_Beras');
+        $totalBeras = ZakatFitrah::sum('Total_Pembayaran');
         $totalUang = ZakatFitrah::sum('Total_Pembayaran');
         // You can add other data retrieval here as needed
 
