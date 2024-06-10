@@ -18,69 +18,32 @@ class LoginController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Handle the login request.
      */
-
     public function login(Request $request)
     {
         $credentials = $request->only('name', 'password');
-        //  dd($credentials);
-        if (Auth::attempt($credentials)) { //melakukan autentifikasi
-            // Authentikasi berhasil dilakukan
 
-            session(['id' => Auth::user()->name]); //buat session untuk menampilkan nama (uname) dimenu
-            return redirect('dashboard');
+        if (Auth::attempt($credentials)) {
+            // Authentication was successful...
+            $user = Auth::user();
+
+            session(['id' => $user->name]); // Create session for displaying name in the menu
+
+            if ($user->role == 'superadmin') {
+                return redirect('superadmin/dashboard'); // Redirect to superadmin dashboard
+            }
+
+            return redirect('dashboard'); // Redirect to general dashboard
         } else {
-            // Authentikasi gagal dilakukan
-            return redirect('/login');
+            // Authentication failed...
+            return redirect('/login')->withErrors(['Invalid credentials']);
         }
     }
 
-
     /**
-     * Store a newly created resource in storage.
+     * Logout the user.
      */
-    public function create(Request $request)
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
     public function logout(Request $request)
     {
         Auth::logout();
@@ -91,4 +54,6 @@ class LoginController extends Controller
 
         return redirect('/');
     }
+
+    // Other resource methods...
 }

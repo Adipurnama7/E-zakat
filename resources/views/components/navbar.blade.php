@@ -10,7 +10,7 @@
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="fas fa-hand-holding-water menu-icon"></i>
-                <span class="menu-title">Pembayaran Zakat</span>
+                <span class="menu-title">Zakat Payment</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
@@ -19,7 +19,7 @@
                             </i> Zakat Fitrah</a>
                     </li>
                     <li class="nav-item"> <a class="nav-link" href="{{ route('maal.index') }}">
-                            </i> Zakat Maal</a>
+                            </i> Zakat Wealth</a>
                         </a>
                     </li>
                 </ul>
@@ -28,25 +28,25 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('muzzaki.index') }}">
                 <i class="fas fa-user-friends menu-icon"></i>
-                <span class="menu-title"> Muzzaki </span>
+                <span class="menu-title">Muzzaki</span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('penyaluran.index') }}">
                 <i class="fas fa-handshake menu-icon"></i>
-                <span class="menu-title"> Penyaluran Zakat </span>
+                <span class="menu-title">Zakat Distribution</span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('mustahik.index') }}">
                 <i class="fas fa-hand-holding-heart menu-icon"></i>
-                <span class="menu-title"> Mustahik </span>
+                <span class="menu-title">Mustahik</span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('donasi.index') }}">
                 <i class="fas fa-donate menu-icon"></i>
-                <span class="menu-title"> Donasi</span>
+                <span class="menu-title">Donation</span>
             </a>
         </li>
         <li class="nav-item">
@@ -58,7 +58,7 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('Masjid.index') }}">
                 <i class="fas fa-mosque menu-icon"></i>
-                <span class="menu-title">Masjid</span>
+                <span class="menu-title">Mosque</span>
             </a>
         </li>
     </ul>

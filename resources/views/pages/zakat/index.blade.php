@@ -5,8 +5,8 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title center">Tabel Data Zakat</h4>
-                    <a href="{{ route('zakat.create') }}" class="btn btn-primary btn-rounded btn-fw">Tambah Zakat</a>
+                    <h4 class="card-title center">Zakat Data Table</h4>
+                    <a href="{{ route('zakat.create') }}" class="btn btn-primary btn-rounded btn-fw">Add Zakat</a>
                     <br>
                     <br>
                     <div class="table-responsive">
@@ -14,8 +14,8 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Jenis Zakat</th>
-                                    <th>Aksi</th>
+                                    <th>Zakat Type</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -29,7 +29,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger btn-xs"
-                                                    onclick="return confirm('Apakah anda yakin?')">Hapus</button>
+                                                    onclick="return confirm('Are you sure?')">Delete</button>
                                             </form>
                                             <a href="{{ route('zakat.edit', $zkt) }}"
                                                 class="btn btn-primary btn-xs">Edit</button>

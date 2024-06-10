@@ -5,21 +5,20 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title center">Tabel Data Penyaluran</h4>
+                    <h4 class="card-title center">Distribution Data Table</h4>
                     <a href="{{ route('penyaluran.create') }}" class="btn btn-primary btn-rounded btn-fw"
-                        style="margin-bottom: 15px;">Tambah Penerimaan
-                        Zakat</a>
+                        style="margin-bottom: 15px;">Add Zakat Distribution</a>
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Tanggal Penerimaan</th>
-                                    <th>Nama Penerima</th>
-                                    <th>Jumlah Penerimaan Uang </th>
-                                    <th>Jumlah Penerimaan Beras </th>
-                                    <th>Nama Amil</th>
-                                    <th>Aksi</th>
+                                    <th>Date of Receipt</th>
+                                    <th>Recipient Name</th>
+                                    <th>Amount of Cash Receipt</th>
+                                    <th>Amount of Rice Receipt</th>
+                                    <th>Amil Name</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -38,7 +37,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger btn-xs"
-                                                    onclick="return confirm('Apakah anda yakin?')">Hapus</button>
+                                                    onclick="return confirm('Are you sure?')">Delete</button>
                                             </form>
                                             <a href="{{ route('penyaluran.edit', $pyl) }}"
                                                 class="btn btn-primary btn-xs">Edit</a>
@@ -51,11 +50,11 @@
                         <br>
                         <div class="row">
                             <div class="col-12 col-md-6">
-                                <p><strong>Total Penyaluran Beras:</strong> {{ $TotalPenyaluranBeras }} Kg
+                                <p><strong>Total Rice Distribution:</strong> {{ $TotalPenyaluranBeras }} Kg
                                 </p>
                             </div>
                             <div class="col-12 col-md-6">
-                                <p><strong>Total Penyaluran Uang:</strong> Rp. {{ number_format($TotalPenyaluranUang) }}
+                                <p><strong>Total Cash Distribution:</strong> Rp. {{ number_format($TotalPenyaluranUang) }}
                                 </p>
                             </div>
                         </div>

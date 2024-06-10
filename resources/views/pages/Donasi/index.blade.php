@@ -5,20 +5,20 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title center">Tabel Data Donasi</h4>
+                    <h4 class="card-title center">Donation Data Table</h4>
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Tanggal Donasi</th>
-                                    <th>Nama Donatur</th>
-                                    <th>No HP</th>
-                                    <th>Alamat</th>
-                                    <th>Total Donasi</th>
-                                    <th>Bukti Donasi</th>
-                                    <th>Status Validasi</th>
-                                    <th>Aksi</th>
+                                    <th>Donation Date</th>
+                                    <th>Donor Name</th>
+                                    <th>Phone Number</th>
+                                    <th>Address</th>
+                                    <th>Total Donation</th>
+                                    <th>Donation Proof</th>
+                                    <th>Validation Status</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -35,11 +35,11 @@
                                                 <a href="{{ asset('images/' . $dns->Bukti_Donasi) }}" data-lightbox="gallery"
                                                     class="lightbox-image">
                                                     <img src="{{ asset('images/' . $dns->Bukti_Donasi) }}"
-                                                        alt="Bukti Donasi"
+                                                        alt="Donation Proof"
                                                         style="width: 100px; height: 100px; object-fit: cover; border-radius: 0;">
                                                 </a>
                                             @else
-                                                Tidak ada gambar
+                                                No image available
                                             @endif
                                         </td>
                                         <td>
@@ -57,7 +57,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger btn-xs"
-                                                    onclick="return confirm('Apakah anda yakin?')">Hapus</button>
+                                                    onclick="return confirm('Are you sure?')">Delete</button>
                                             </form>
                                             <a href="{{ route('donasi.edit', $dns) }}"
                                                 class="btn btn-primary btn-xs">Edit</a>

@@ -3,29 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\pembayaran;
-use App\Models\mesjid;
-use App\models\zakat;
-use App\Models\zakatFitrah;
-use App\Models\maal;
 
-class muzzakiController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $masjid = mesjid::all();
-        $zakats = zakat::all();
-        $pembayaran = zakatfitrah::all();
-        $maal = maal::all();
-        // dd($pembayaran);
-        return view('pages.muzzaki.index', compact('maal', 'pembayaran', 'masjid', 'zakats'));
+        //
     }
-
-
-
 
     /**
      * Show the form for creating a new resource.
