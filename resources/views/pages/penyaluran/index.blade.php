@@ -6,8 +6,14 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title center">Distribution Data Table</h4>
-                    <a href="{{ route('penyaluran.create') }}" class="btn btn-primary btn-rounded btn-fw"
-                        style="margin-bottom: 15px;">Add Zakat Distribution</a>
+                    <div class="form-inline">
+                        <a href="{{ route('penyaluran.create') }}" class="btn btn-primary mr-2">Add Zakat Distribution</a>
+                        <form method="GET" action="{{ route('penyaluran.index') }}" class="form-inline mt-3">
+                            <input type="text" class="form-control form-control-sm mr-2" id="search" name="search"
+                                placeholder="Search" value="{{ $searchQuery ?? '' }}">
+                            <button type="submit" class="btn btn-primary btn-sm">Search</button>
+                        </form>
+                    </div>
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>

@@ -12,16 +12,30 @@ class ZakatFitrahController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        // Retrieve all mosques
         $masjid = mesjid::all();
-        $zakats = zakat::all();
-        $zakatfitrah = zakatFitrah::all();
-        $totalBeras = zakatFitrah::sum('Pembayaran_Beras');
-        $totalUang = zakatFitrah::sum('Pembayaran_Uang');
-        return view('pages.pembayaran.index', compact('masjid', 'zakatfitrah',));
-    }
 
+        // Retrieve search query from request
+        $searchQuery = $request->input('search');
+
+        // Query zakat fitrah data with search filter
+        $zakatfitrah = zakatFitrah::query();
+
+        // If search query exists, filter the data
+        if ($searchQuery) {
+            $zakatfitrah->where('Nama_Pembayar', 'like', '%' . $searchQuery . '%');
+        }
+
+        // Get the filtered data
+        $zakatfitrah = $zakatfitrah->get();
+        // $zakatfitrah = ZakatFitrah::paginate(10); // Adjust the number as needed
+
+
+        // Return the view with the filtered data and search query
+        return view('pages.pembayaran.index', compact('masjid', 'zakatfitrah', 'searchQuery'));
+    }
     /**
      * Show the form for creating a new resource.
      */

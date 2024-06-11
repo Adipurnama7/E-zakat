@@ -7,10 +7,19 @@ Sure, here is the translated version of your Blade template into English:
     <div class="row">
         <div class="col-12">
             <div class="card">
+
                 <div class="card-body">
                     <h5 class="card-title1">Zakat Fitrah Payment Data</h5>
-                    <a href="{{ route('pembayaran.create') }}" class="btn btn-primary btn-rounded btn-fw"
-                        style="margin-bottom: 15px;">Add Payment</a>
+                    <div class="form-inline">
+                        <a href="{{ route('pembayaran.create') }}" class="btn btn-primary mr-2">Add Payment</a>
+                        <form method="GET" action="{{ route('pembayaran.index') }}" class="form-inline mt-3">
+                            <input type="text" class="form-control form-control-sm mr-2" id="search" name="search"
+                                placeholder="Search" value="{{ $searchQuery ?? '' }}">
+                            <button type="submit" class="btn btn-primary btn-sm">Search</button>
+                        </form>
+                    </div>
+
+                    <br>
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>

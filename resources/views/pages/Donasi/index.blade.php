@@ -6,6 +6,14 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title center">Donation Data Table</h4>
+                    <div class="form-inline">
+                        <form method="GET" action="{{ route('donasi.index') }}" class="form-inline mt-2">
+                            <input type="text" class="form-control form-control-sm mr-2" id="search" name="search"
+                                placeholder="Search" value="{{ $searchQuery ?? '' }}">
+                            <button type="submit" class="btn btn-primary btn-sm">Search</button>
+                        </form>
+                    </div>
+                    <br>
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
@@ -32,8 +40,8 @@
                                         <td>Rp. {{ number_format($dns->Total_Donasi) }}</td>
                                         <td>
                                             @if ($dns->Bukti_Donasi)
-                                                <a href="{{ asset('images/' . $dns->Bukti_Donasi) }}" data-lightbox="gallery"
-                                                    class="lightbox-image">
+                                                <a href="{{ asset('images/' . $dns->Bukti_Donasi) }}"
+                                                    data-lightbox="gallery" class="lightbox-image">
                                                     <img src="{{ asset('images/' . $dns->Bukti_Donasi) }}"
                                                         alt="Donation Proof"
                                                         style="width: 100px; height: 100px; object-fit: cover; border-radius: 0;">

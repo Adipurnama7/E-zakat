@@ -1,6 +1,3 @@
-Sure, here is the translated version of your Blade template into English:
-
-```blade
 @extends('layouts.main')
 
 @section('content')
@@ -15,12 +12,12 @@ Sure, here is the translated version of your Blade template into English:
                         @method('PUT')
                         <h5 class="card-title1">Muzzaki Information</h5>
                         <div class="form-group">
-                            <label for="exampleInputName1">Payer Name</label>
+                            <label for="exampleInputName1">Muzzaki Name</label>
                             <input type="text" class="form-control" id="exampleInputName1" name="Nama_pembayar"
                                 placeholder="Payer Name" value="{{ $pembayaran->Nama_pembayar }}">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputName1">Payer Phone Number</label>
+                            <label for="exampleInputName1">Muzzaki Phone Number</label>
                             <input type="text" class="form-control" id="exampleInputName1" name="No_Hp"
                                 placeholder="Phone Number" value="{{ $pembayaran->No_Hp }}">
                         </div>
@@ -140,6 +137,8 @@ Sure, here is the translated version of your Blade template into English:
                 document.getElementById("totalPembayaranUangInput").value = "";
             }
         }
+
+        // Initial calculation on page load
+        calculateTotal();
     </script>
 @endsection
-```

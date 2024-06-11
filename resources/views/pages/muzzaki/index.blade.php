@@ -9,6 +9,13 @@ Here's the translated version of your Blade template:
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title center">Muzzaki Data Table</h4>
+                    <div class="form-inline">
+                        <form method="GET" action="{{ route('muzzaki.index') }}" class="form-inline mt-3">
+                            <input type="text" class="form-control form-control-sm mr-2" id="search" name="search"
+                                placeholder="Search" value="{{ $searchQuery ?? '' }}">
+                            <button type="submit" class="btn btn-primary btn-sm">Search</button>
+                        </form>
+                    </div>
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
