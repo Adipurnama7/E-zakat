@@ -11,11 +11,27 @@ class mustahikController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $totalMustahik = Mustahik::count();
-        $mustahik = mustahik::all();
-        return view('pages.mustahik.index', compact('mustahik'));
+        $searchQuery = $request->input('search');
+
+        // Start building the query
+        $mustahikQuery = Mustahik::query();
+
+        // If search query exists, filter the data
+        if ($searchQuery) {
+            $mustahikQuery->where('Nama_Penerima', 'like', '%' . $searchQuery . '%');
+            // Replace 'field_name' with the actual field you want to search by
+        }
+
+        // Get the filtered data
+        $mustahik = $mustahikQuery->get();
+
+        // Count the total number of mustahiks
+        $totalMustahik = $mustahikQuery->count();
+
+        // Pass the data to the view
+        return view('pages.mustahik.index', compact('mustahik', 'totalMustahik', 'searchQuery'));
     }
 
     /**

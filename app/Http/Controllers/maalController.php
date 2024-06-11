@@ -12,13 +12,26 @@ class maalController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $masjid = mesjid::all();
-        $zakatmaal = maal::all();
+        $searchQuery = $request->input('search');
+
+        // Query maal data with search filter
+        $zakatmaal = maal::query();
+
+        // If search query exists, filter the data
+        if ($searchQuery) {
+            $zakatmaal->where('Nama_Pembayar', 'like', '%' . $searchQuery . '%');
+        }
+
+        // Get the filtered data
+        $zakatmaal = $zakatmaal->get();
+
         $zakats = zakat::all();
-        return view('pages.maal.index', compact('masjid', 'zakats', 'zakatmaal'));
+        return view('pages.maal.index', compact('masjid', 'zakats', 'zakatmaal', 'searchQuery'));
     }
+
 
     /**
      * Show the form for creating a new resource.

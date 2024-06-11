@@ -14,15 +14,29 @@ class muzzakiController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $masjid = mesjid::all();
         $zakats = zakat::all();
-        $pembayaran = zakatfitrah::all();
-        $maal = maal::all();
-        // dd($pembayaran);
-        return view('pages.muzzaki.index', compact('maal', 'pembayaran', 'masjid', 'zakats'));
+        $searchQuery = $request->input('search');
+
+        // Query for maal data with search filter
+        $maalQuery = maal::query();
+        if ($searchQuery) {
+            $maalQuery->where('Nama_Pembayar', 'like', '%' . $searchQuery . '%');
+        }
+        $maal = $maalQuery->get();
+
+        // Query for zakatfitrah data with search filter
+        $pembayaranQuery = zakatFitrah::query();
+        if ($searchQuery) {
+            $pembayaranQuery->where('Nama_pembayar', 'like', '%' . $searchQuery . '%');
+        }
+        $pembayaran = $pembayaranQuery->get();
+
+        return view('pages.muzzaki.index', compact('maal', 'pembayaran', 'masjid', 'zakats', 'searchQuery'));
     }
+
 
 
 

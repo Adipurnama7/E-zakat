@@ -6,8 +6,14 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title center">Recipient Data Table</h4>
-                    <a href="{{ route('mustahik.create') }}" class="btn btn-primary btn-rounded btn-fw">Add Recipient</a>
-                    <br>
+                    <div class="form-inline">
+                        <a href="{{ route('mustahik.create') }}" class="btn btn-primary mr-2">Add Recipient</a>
+                        <form method="GET" action="{{ route('mustahik.index') }}" class="form-inline mt-2">
+                            <input type="text" class="form-control form-control-sm mr-2" id="search" name="search"
+                                placeholder="Search" value="{{ $searchQuery ?? '' }}">
+                            <button type="submit" class="btn btn-primary btn-sm">Search</button>
+                        </form>
+                    </div>
                     <br>
                     <div class="table-responsive">
                         <table class="table table-bordered">

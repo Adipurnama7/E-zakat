@@ -11,13 +11,22 @@ class PenyaluranController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-
+    public function index(Request $request)
     {
-        $penyaluran = penyaluran::all();
-        $TotalPenyaluranBeras = penyaluran::sum('jumlah_penerimaan_beras');
-        $TotalPenyaluranUang = penyaluran::sum('jumlah_penerimaan_uang');
-        return view('pages.penyaluran.index', compact('penyaluran', 'TotalPenyaluranBeras', 'TotalPenyaluranUang'));
+        $searchQuery = $request->input('search');
+        $penyaluranQuery = penyaluran::query();
+
+        // If search query exists, filter the data
+        if ($searchQuery) {
+            $penyaluranQuery->where('Nama_Penerima', 'like', '%' . $searchQuery . '%');
+            // Replace 'field_name' with the actual field you want to search by
+        }
+
+        $penyaluran = $penyaluranQuery->get();
+        $TotalPenyaluranBeras = $penyaluranQuery->sum('jumlah_penerimaan_beras');
+        $TotalPenyaluranUang = $penyaluranQuery->sum('jumlah_penerimaan_uang');
+
+        return view('pages.penyaluran.index', compact('penyaluran', 'TotalPenyaluranBeras', 'TotalPenyaluranUang', 'searchQuery'));
     }
 
     /**

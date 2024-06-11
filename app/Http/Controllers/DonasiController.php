@@ -11,11 +11,24 @@ class DonasiController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $searchQuery = $request->input('search');
 
-        $donasi = donasi::all();
-        return view('pages.Donasi.index', compact('donasi'));
+        // Start building the query
+        $donasiQuery = Donasi::query();
+
+        // If search query exists, filter the data
+        if ($searchQuery) {
+            $donasiQuery->where('Nama_Donatur', 'like', '%' . $searchQuery . '%');
+            // Replace 'field_name' with the actual field you want to search by
+        }
+
+        // Get the filtered data
+        $donasi = $donasiQuery->get();
+
+        // Pass the data to the view
+        return view('pages.Donasi.index', compact('donasi', 'searchQuery'));
     }
 
     /**
