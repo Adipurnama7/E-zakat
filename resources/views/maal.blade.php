@@ -62,7 +62,8 @@
                     </div>
                     <div class="col-lg-5 text-end">
                         <div class="h-100 d-inline-flex align-items-center">
-                            <a class="text-body ps-4" href="login"><i class="fa fa-lock text-dark me-1"></i> login</a>
+                            <a class="text-body ps-4" href="./Login/index.html"><i
+                                    class="fa fa-lock text-dark me-1"></i> login</a>
                         </div>
                     </div>
                 </div>
@@ -140,25 +141,25 @@
                     placeholder="Enter the amount of jewelry you own">
                 <label>Shares/Securities/Similar (IDR): </label>
                 <input id="saham" type="text" class="form-control"
-                    placeholder="Masukkan jumlah saham yang dimiliki">
+                    placeholder="Enter the number of shares owned">
                 <label>Real Estate (excluding current residence) (IDR): </label>
                 <input id="realEstate" type="text" class="form-control"
-                    placeholder="Masukkan jumlah real estate yang dimiliki">
+                    placeholder="Enter the amount of real estate owned">
                 <label>Car (more than necessary) (IDR): </label>
                 <input id="mobil" type="text" class="form-control"
-                    placeholder="Masukkan jumlah mobil yang dimiliki">
+                    placeholder="Enter the number of cars owned">
                 <label>Other Forms of Assets (IDR): </label>
                 <input id="hartaLain" type="text" class="form-control"
-                    placeholder="Masukkan jumlah harta lebih yang dimiliki">
+                    placeholder="Enter the amount of excess assets you own">
                 <label>Personal/Consumptive Debt (maturity) (IDR): </label>
                 <input id="hutangCicilan" type="text" class="form-control"
-                    placeholder="Masukkan hutang atau cicilan yang dimiliki">
+                    placeholder="Enter the debt or installments you have">
                 <label>Amount of Zakat Calculated Assets (IDR): </label>
                 <input id="tot" class='form-control' type="text"
                     style='color:rgba(0, 0, 0, 0.9); background-color:rgba(255, 255, 255, .5); border: 0;' disabled>
                 <label>Current Gold Price / Gram(IDR): </label>
                 <input id="hargaEmas" type="text" class='form-control'
-                    placeholder="Masukkan harga emas saat ini">
+                    placeholder="Enter the current gold price">
                 <p id="gold" style="color: red; display: none; margin-top: 5px;">Harga Emas tidak boleh 0.</p>
                 <label>Large Nisab Maal / Year(IDR): </label>
                 <input id="nisab" class='form-control' type="text"
