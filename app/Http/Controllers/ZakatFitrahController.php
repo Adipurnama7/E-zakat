@@ -28,10 +28,8 @@ class ZakatFitrahController extends Controller
             $zakatfitrah->where('Nama_Pembayar', 'like', '%' . $searchQuery . '%');
         }
 
-        // Get the filtered data
-        $zakatfitrah = $zakatfitrah->get();
-        // $zakatfitrah = ZakatFitrah::paginate(10); // Adjust the number as needed
-
+        // Get the filtered data with pagination
+        $zakatfitrah = $zakatfitrah->paginate(10); // Adjust the number as needed
 
         // Return the view with the filtered data and search query
         return view('pages.pembayaran.index', compact('masjid', 'zakatfitrah', 'searchQuery'));

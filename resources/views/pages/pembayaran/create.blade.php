@@ -1,6 +1,3 @@
-Sure, here is the translated version of your Blade template into English:
-
-```blade
 @extends('layouts.main')
 
 @section('content')
@@ -149,4 +146,3 @@ Sure, here is the translated version of your Blade template into English:
         });
     </script>
 @endsection
-```
