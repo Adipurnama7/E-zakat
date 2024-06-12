@@ -82,23 +82,23 @@
                     <div class="navbar-nav ms-lg-auto mx-xl-auto">
                         <div class="navbar-nav ms-lg-auto mx-xl-auto">
                             <a href="/" class="nav-item nav-link">Home</a>
-                            <a href="/#Tentang" class="nav-item nav-link">Tentang</a>
-                            <a href="/#Informasi" class="nav-item nav-link">Informasi</a>
-                            <a href="/#Donasi" class="nav-item nav-link">Donasi</a>
+                            <a href="/#Tentang" class="nav-item nav-link">About</a>
+                            <a href="/#Informasi" class="nav-item nav-link">Information</a>
+                            <a href="/#Donasi" class="nav-item nav-link">Donation</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle"
-                                    data-bs-toggle="dropdown">Kalkulator</a>
+                                    data-bs-toggle="dropdown">Calculatorr</a>
                                 <div class="dropdown-menu m-0 rounded-0">
-                                    <a href="zakat_penghasilan" class="dropdown-item">Zakat Penghasilan</a>
-                                    <a href="zakat_maal" class="dropdown-item">Zakat Maal</a>
-                                    <a href="perdagangan" class="dropdown-item">Zakat Perdagangan</a>
-                                    <a href="emas" class="dropdown-item">Zakat Emas</a>
-                                    <a href="tabungan" class="dropdown-item">Zakat Tabungan</a>
-                                    <a href="perusahaan" class="dropdown-item">Zakat Perusahaan</a>
+                                    <a href="zakat_penghasilan" class="dropdown-item">Income Zakat</a>
+                                    <a href="zakat_maal" class="dropdown-item">Mal Zakat</a>
+                                    <a href="perdagangan" class="dropdown-item">Comercial Zakat</a>
+                                    <a href="emas" class="dropdown-item">Gold Zakat</a>
+                                    <a href="tabungan" class="dropdown-item">Sarvings Zakat</a>
+                                    <a href="perusahaan" class="dropdown-item">Company Zakat</a>
                                 </div>
                             </div>
                             <a href="/#Team" class="nav-item nav-link">Our Team </a>
-                            <a href="/#Kontak" class="nav-item nav-link">Kontak</a>
+                            <a href="/#Kontak" class="nav-item nav-link">Contact</a>
                         </div>
                     </div>
             </nav>
@@ -296,23 +296,23 @@
                     <div class="footer-item mt-5">
                         <h4 class="text-light mb-4">E-<span class="text-primary">Zakat</span></h4>
                         <p class="mb-4 text-secondary">
-                            E-zakat adalah sistem atau platform yang memfasilitasi proses pembayaran zakat secara
-                            elektronik atau online. Ini memungkinkan individu atau perusahaan untuk memberikan zakat
-                            mereka dengan mudah dan efisien melalui metode pembayaran yang disediakan.</p>
-                        <a href="" class="btn btn-primary py-2 px-4">Donasi Sekarang</a>
+                            E-zakat is a system or platform that facilitates the process of paying zakat
+                            electronic or online. It allows individuals or companies to give zakat
+                            them easily and efficiently through the payment methods provided.</p>
+                        <a href="" class="btn btn-primary py-2 px-4">Donation Now</a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 col-xl-3">
                     <div class="footer-item mt-5">
                         <h4 class="text-light mb-4">Our Mosque</h4>
                         <div class="d-flex flex-column">
-                            <h6 class="text-secondary mb-0">Lokasi</h6>
+                            <h6 class="text-secondary mb-0">Location</h6>
                             <div class="d-flex align-items-center border-bottom py-4">
                                 <span class="flex-shrink-0 btn-square bg-primary me-3 p-4"><i
                                         class="fa fa-map-marker-alt text-dark"></i></span>
-                                <a href="" class="text-body">Mesjid Al Jabar</a>
+                                <a href="" class="text-body">Al-Jabar Mosque</a>
                             </div>
-                            <h6 class="text-secondary mt-4 mb-0">Kontak</h6>
+                            <h6 class="text-secondary mt-4 mb-0">Contact</h6>
                             <div class="d-flex align-items-center py-4">
                                 <span class="flex-shrink-0 btn-square bg-primary me-3 p-4"><i
                                         class="fa fa-phone-alt text-dark"></i></span>
@@ -330,17 +330,17 @@
                             <a class="text-body mb-2" href="/#Home"><i
                                     class="fa fa-check text-primary me-2"></i>Home</a>
                             <a class="text-body mb-2" href="/#Tentang"><i
-                                    class="fa fa-check text-primary me-2"></i>Tentang</a>
+                                    class="fa fa-check text-primary me-2"></i>About</a>
                             <a class="text-body mb-2" href="/#Donasi"><i
-                                    class="fa fa-check text-primary me-2"></i>Donasi</a>
+                                    class="fa fa-check text-primary me-2"></i>Donation</a>
                             <a class="text-body mb-2" href="/#Informasi"><i
-                                    class="fa fa-check text-primary me-2"></i>Info</a>
+                                    class="fa fa-check text-primary me-2"></i>Information</a>
                             <a class="text-body mb-2" href="/#Kalkulator"><i
-                                    class="fa fa-check text-primary me-2"></i>Kalkulator</a>
+                                    class="fa fa-check text-primary me-2"></i>Calculator</a>
                             <a class="text-body mb-2" href="/#Team"><i class="fa fa-check text-primary me-2"></i>Our
                                 Team</a>
                             <a class="text-body mb-2" href="/#Kontak"><i
-                                    class="fa fa-check text-primary me-2"></i>Kontak</a>
+                                    class="fa fa-check text-primary me-2"></i>Contact</a>
                         </div>
                     </div>
                 </div>
@@ -349,7 +349,7 @@
                 <div class="border-top border-secondary pb-4"></div>
                 <div class="row">
                     <div class="col-md-6 text-center text-md-end">
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">Kelompok 5</a>
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">Group 5</a>
                     </div>
                 </div>
             </div>
