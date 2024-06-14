@@ -14,21 +14,14 @@ class maalController extends Controller
      */
     public function index(Request $request)
     {
+        $zakatmaalQuery = maal::query();
+        $zakats = zakat::all();
         $masjid = mesjid::all();
         $searchQuery = $request->input('search');
-
-        // Query maal data with search filter
-        $zakatmaal = maal::query();
-
-        // If search query exists, filter the data
         if ($searchQuery) {
-            $zakatmaal->where('Nama_Pembayar', 'like', '%' . $searchQuery . '%');
+            $zakatmaalQuery->where('Nama_Pembayar', 'like', '%' . $searchQuery . '%');
         }
-
-        // Get the filtered data
-        $zakatmaal = $zakatmaal->get();
-
-        $zakats = zakat::all();
+        $zakatmaal = $zakatmaalQuery->paginate();
         return view('pages.maal.index', compact('masjid', 'zakats', 'zakatmaal', 'searchQuery'));
     }
 
@@ -38,9 +31,9 @@ class maalController extends Controller
      */
     public function create()
     {
+        $zakatmaal = maal::all();
         $masjid = mesjid::all();
         $zakats = zakat::all();
-        $zakatmaal = maal::all();
         return view('pages.maal.create', compact('masjid', 'zakats', 'zakatmaal'));
     }
 

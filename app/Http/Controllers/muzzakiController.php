@@ -19,15 +19,12 @@ class muzzakiController extends Controller
         $masjid = mesjid::all();
         $zakats = zakat::all();
         $searchQuery = $request->input('search');
-
-        // Query for maal data with search filter
         $maalQuery = maal::query();
         if ($searchQuery) {
             $maalQuery->where('Nama_Pembayar', 'like', '%' . $searchQuery . '%');
         }
         $maal = $maalQuery->get();
 
-        // Query for zakatfitrah data with search filter
         $pembayaranQuery = zakatFitrah::query();
         if ($searchQuery) {
             $pembayaranQuery->where('Nama_pembayar', 'like', '%' . $searchQuery . '%');

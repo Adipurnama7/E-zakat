@@ -10,11 +10,26 @@ class ZakatController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $zakats = zakat::all();
-        return view('pages.zakat.index', compact('zakats'));
+        // Start with the query builder
+        $query = zakat::query();
+
+        // Get the search query from the request
+        $searchQuery = $request->input('search');
+
+        // If there's a search query, apply a where clause
+        if ($searchQuery) {
+            $query->where('Jenis_Zakat', 'like', '%' . $searchQuery . '%');
+        }
+
+        // Paginate the results
+        $zakats = $query->paginate(); // Apply pagination directly on the query builder
+
+        // Return the view with the paginated results and the search query
+        return view('pages.zakat.index', compact('zakats', 'searchQuery'));
     }
+
 
     /**
      * Show the form for creating a new resource.

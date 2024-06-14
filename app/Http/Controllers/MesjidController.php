@@ -10,12 +10,19 @@ class MesjidController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
 
-        $masjid = mesjid::all();
-        return view('pages.masjid.index', compact('masjid'));
+    public function index(Request $request)
+    {
+        $masjidQuery = mesjid::query();
+        $searchQuery = $request->input('search');
+        if ($searchQuery) {
+            $masjidQuery->where('Nama_Mesjid', 'like', '%' . $searchQuery . '%'); // Asumsikan kolom nama untuk pencarian
+        }
+        $masjid = $masjidQuery->get();
+        return view('pages.masjid.index', compact('masjid', 'searchQuery'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
