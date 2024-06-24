@@ -113,8 +113,8 @@
                 <div class="col-lg-7">
                     <div class="hero-header-inner animated zoomIn">
                         <p class="fs-4 text-dark">WELCOME TO E-Zakat</p>
-                        <h2 class="display-1 mb-5 text-dark">Savings Zakat Calculator</h2>
-                        <a href="/#Donasi" class="btn btn-primary py-3 px-5">Donate</a>
+                        <h2 class="display-1 mb-5 text-dark">Calculator Zakat</h2>
+                        <a href="index.html#Donasi" class="btn btn-primary py-3 px-5">Donate</a>
                     </div>
                 </div>
             </div>
