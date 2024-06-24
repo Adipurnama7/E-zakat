@@ -160,7 +160,6 @@
             </div>
         </div>
     </div>
-
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Definisikan API key dan URL endpoint
