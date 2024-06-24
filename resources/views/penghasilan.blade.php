@@ -127,31 +127,25 @@
         <div class='kalkulator-container'>
             <div class='kalkulator-left'>
                 <h1>Income Zakat</h1>
-                <h2>Intention (Niat)</h2>
-                <img src='img/niat.png' alt='niat' style='height:auto; width:100%;'>
-                <h3>"Nawaitu an ukhrija zakatadz maali fardhan lillahi ta’ala."</h3>
-                <p>"Meaning: I intend to pay my obligatory zakat due to Allah."</p>
+                    <h2>Intention of prayer</h2>
+                    <img src='img/niat.png' alt='niat' style='height:auto; width:100%;'>
+                    <h3>"Nawaitu an ukhrija zakatadz maali fardhan lillahi ta’ala."</h3>
+                    <p>"It means: I intend to give the obligatory zakat of my wealth for the sake of Allah Ta'ala."</p>
             </div>
             <div class='kalkulator-right'>
                 <label>Monthly Income (IDR): </label>
-                <input id="penghasilanBulanan" type="text" class="form-control"
-                    placeholder="Enter your monthly income">
+                <input id="penghasilanBulanan" type="text" class="form-control" placeholder="Enter your monthly income">
                 <label>Other Income / Month (IDR): </label>
-                <input id="penghasilanLainnya" type="text" class="form-control"
-                    placeholder="Enter other income you have">
+                <input id="penghasilanLainnya" type="text" class="form-control" placeholder="Enter other income you have">
                 <label>Debts or Installments / Month (IDR): </label>
-                <input id="hutangCicilan" type="text" class="form-control"
-                    placeholder="Enter debts or installments you have">
+                <input id="hutangCicilan" type="text" class="form-control" placeholder="Enter debts or installments you have">
                 <label>Total Income / Month (IDR): </label>
-                <input id="tot" class='form-control' type="text"
-                    style='color:rgba(0, 0, 0, 0.9); background-color:rgba(255, 255, 255, .5); border: 0;' disabled>
+                <input id="tot" class='form-control' type="text" style='color:rgba(0, 0, 0, 0.9); background-color:rgba(255, 255, 255, .5); border: 0;' disabled>
                 <label>Current Gold Price / Gram (IDR): </label>
-                <input id="hargaEmas" type="text" class='form-control'
-                    placeholder="Enter the current gold price">
+                <input id="hargaEmas" type="text" class='form-control' placeholder="Enter the current gold price">
                 <p id="gold" style="color: red; display: none; margin-top: 5px;">Gold price cannot be 0.</p>
                 <label>Nisab Amount / Month (IDR): </label>
-                <input id="nisab" class='form-control' type="text"
-                    style='color:rgba(0, 0, 0, .9); background-color:rgba(255, 255, 255, .3); border: 0;' disabled>
+                <input id="nisab" class='form-control' type="text" style='color:rgba(0, 0, 0, .9); background-color:rgba(255, 255, 255, .3); border: 0;' disabled>
                 <button class='button'>Calculate Zakat</button>
                 <div class="popup" style="display: none;">
                     <div class='popup-zakat'>
@@ -271,12 +265,12 @@
 
                 if (total >= nisabPenghasilan) {
                     document.getElementById('zakatInfo').innerHTML =
-                        'Jumlah zakat penghasilan yang harus Anda bayarkan setiap bulan sebesar:';
+                        'Amount of zakat you need to pay:';
                     document.getElementById('result').innerHTML = formatToCurrency(amount) + ' IDR';
                 } else {
                     document.getElementById('zakatInfo').innerHTML = '';
                     document.getElementById('result').innerHTML =
-                        'Penghasilan Anda belum mencapai Nisab untuk Zakat Penghasilan.';
+                        'Your wealth has not reached the Nisab threshold for Zakat.';
                 }
 
                 document.querySelector('.popup').style.display = 'block';
