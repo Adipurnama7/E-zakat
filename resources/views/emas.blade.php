@@ -133,27 +133,24 @@
                 <p>"Meaning: I intend to pay my obligatory zakat due to Allah."</p>
             </div>
             <div class='kalkulator-right'>
-                <label>Pure Gold (Grams): </label>
-                <input id="emas" type="text" class="form-control" placeholder="Minimum 85 grams">
-                <label>Gold Jewelry (Grams): </label>
-                <input id="perhiasan" type="text" class="form-control" placeholder="Minimum 85 grams">
-                <label>Total Gold Assets (IDR): </label>
-                <input id="tot" class='form-control' type="text"
-                    style='color:rgba(0, 0, 0, 0.9); background-color:rgba(255, 255, 255, .5); border: 0;' disabled>
-                <label>Current Gold Price / Gram (IDR): </label>
-                <input id="hargaEmas" type="text" class='form-control'
-                    placeholder="Enter the current gold price">
-                <p id="gold" style="color: red; display: none; margin-top: 5px;">Gold price cannot be 0.</p>
-                <label>Gold Nisab Amount / Year (IDR): </label>
-                <input id="nisab" class='form-control' type="text"
-                    style='color:rgba(0, 0, 0, .9); background-color:rgba(255, 255, 255, .3); border: 0;' disabled>
-                <button class='button'>Calculate Zakat</button>
-                <div class="popup" style="display: none;">
-                    <div class='popup-zakat'>
-                        <p id="zakatInfo"></p>
-                        <h3 id="result"></h3>
-                        <a href='index.html#Donasi' class='popup-button' id="saveButton">Donate</a>
-                        <button class='popup-button' id="closeButton">Close</button>
+                    <label>Gold Bullion (Grams): </label>
+                    <input id="emas" type="text" class="form-control" placeholder="Minimum 85 grams">
+                    <label>Jewelry Gold (Grams): </label>
+                    <input id="perhiasan" type="text" class="form-control" placeholder="Minimum 85 grams">
+                    <label>Total Gold Wealth (IDR): </label>
+                    <input id="tot" class='form-control' type="text" style='color:rgba(0, 0, 0, 0.9); background-color:rgba(255, 255, 255, .5); border: 0;' disabled>
+                    <label>Current Gold Price / Gram (IDR): </label>
+                    <input id="hargaEmas" type="text" class='form-control' placeholder="Enter the current gold price">
+                    <p id="gold" style="color: red; display: none; margin-top: 5px;">Gold price cannot be 0.</p>
+                    <label>Nisab for Gold Wealth / Year (IDR): </label>
+                    <input id="nisab" class='form-control' type="text" style='color:rgba(0, 0, 0, .9); background-color:rgba(255, 255, 255, .3); border: 0;' disabled>
+                    <button class='button'>Calculate Zakat</button>
+                    <div class="popup" style="display: none;">
+                        <div class='popup-zakat'>
+                            <p id="zakatInfo"></p>
+                            <h3 id="result"></h3>
+                            <a href='index.html#Donasi' class='popup-button' id="saveButton">Donate</a>
+                            <button class='popup-button' id="closeButton">Close</button>
                     </div>
                 </div>
             </div>
