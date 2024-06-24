@@ -126,11 +126,11 @@
     <div class='kalkulator'>
         <div class='kalkulator-container'>
             <div class='kalkulator-left'>
-                <h1>Trading Zakat</h1>
-                <h2>Intention (Niah)</h2>
+                <h1>Trade Zakat</h1>
+                <h2>Intention of prayer</h2>
                 <img src='img/niat.png' alt='niat' style='height:auto; width:100%;'>
                 <h3>"Nawaitu an ukhrija zakatadz maali fardhan lillahi ta’ala."</h3>
-                <p>"Meaning: I intend to pay zakat on my wealth because of Allah Ta'ala."</p>
+                <p>"It means: I intend to give the obligatory zakat of my wealth for the sake of Allah Ta'ala."</p>
             </div>
             <div class='kalkulator-right'>
                 <label>Capital / Year (IDR): </label>
