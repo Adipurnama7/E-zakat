@@ -108,14 +108,14 @@
 
 
     <!-- Hero Start -->
-    <div class="container-fluid hero-header" id = "Home">
+    <div class="container-fluid hero-header" id="Home">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">
                     <div class="hero-header-inner animated zoomIn">
                         <p class="fs-4 text-dark">WELCOME TO E-Zakat</p>
-                        <h2 class="display-1 mb-5 text-dark">Kalkulator Zakat</h2>
-                        <a href="/#Donasi" class="btn btn-primary py-3 px-5">Donasi</a>
+                        <h2 class="display-1 mb-5 text-dark">Savings Zakat Calculator</h2>
+                        <a href="/#Donasi" class="btn btn-primary py-3 px-5">Donate</a>
                     </div>
                 </div>
             </div>
@@ -123,45 +123,46 @@
     </div>
     <!-- Hero End -->
 
-    <!-- Kalkulasi Start -->
+    <!-- Calculation Start -->
     <div class='kalkulator'>
         <div class='kalkulator-container'>
             <div class='kalkulator-left'>
-                <h1>Zakat Tabungan</h1>
-                <h2>Niat</h2>
+                <h1>Savings Zakat</h1>
+                <h2>Intention (Niat)</h2>
                 <img src='img/niat.png' alt='niat' style='height:auto; width:100%;'>
                 <h3>"Nawaitu an ukhrija zakatadz maali fardhan lillahi ta’ala."</h3>
-                <p>"Artinya: Aku niat mengeluarkan zakat hartaku fardhu karena Allah Ta'ala."</p>
+                <p>"Meaning: I intend to pay zakat on my savings because of Allah Ta'ala."</p>
             </div>
             <div class='kalkulator-right'>
-                <label>Saldo Awal (awal hitungan tahun) (IDR): </label>
+                <label>Initial Balance (beginning of the year) (IDR): </label>
                 <input id="awal" type="text" class="form-control"
-                    placeholder="Masukkan saldo awal satu tahun terakhir">
-                <label>Saldo Akhir (akhir hitungan tahun) (IDR): </label>
+                    placeholder="Enter the initial balance from the last year">
+                <label>Final Balance (end of the year) (IDR): </label>
                 <input id="akhir" type="text" class="form-control"
-                    placeholder="Masukkan saldo akhir satu tahun terakhir">
-                <label>Jumlah Saldo Satu Tahun Terakhir (IDR): </label>
+                    placeholder="Enter the final balance from the last year">
+                <label>Total Balance for the Last Year (IDR): </label>
                 <input id="tot" class='form-control' type="text"
                     style='color:rgba(0, 0, 0, 0.9); background-color:rgba(255, 255, 255, .5); border: 0;' disabled>
-                <label>Harga Emas Saat Ini / Gram (IDR): </label>
+                <label>Current Gold Price / Gram (IDR): </label>
                 <input id="hargaEmas" type="text" class='form-control'
-                    placeholder="Masukkan harga emas saat ini">
-                <p id="gold" style="color: red; display: none; margin-top: 5px;">Harga Emas tidak boleh 0.</p>
-                <label>Besar Nisab Tabungan / Tahun (IDR): </label>
+                    placeholder="Enter the current gold price">
+                <p id="gold" style="color: red; display: none; margin-top: 5px;">Gold price cannot be 0.</p>
+                <label>Savings Nisab Amount / Year (IDR): </label>
                 <input id="nisab" class='form-control' type="text"
                     style='color:rgba(0, 0, 0, .9); background-color:rgba(255, 255, 255, .3); border: 0;' disabled>
-                <button class='button'>Hitung Zakat</button>
+                <button class='button'>Calculate Zakat</button>
                 <div class="popup" style="display: none;">
                     <div class='popup-zakat'>
                         <p id="zakatInfo"></p>
                         <h3 id="result"></h3>
-                        <a href='/#Donasi' class='popup-button' id="saveButton">Donasi</a>
-                        <button class='popup-button' id="closeButton">Tutup</button>
+                        <a href='/#Donasi' class='popup-button' id="saveButton">Donate</a>
+                        <button class='popup-button' id="closeButton">Close</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {

@@ -108,7 +108,7 @@
 
 
     <!-- Hero Start -->
-    <div class="container-fluid hero-header" id = "Home">
+    <div class="container-fluid hero-header" id="Home">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">
@@ -123,12 +123,12 @@
     </div>
     <!-- Hero End -->
 
-    <!-- Kalkulasi Start -->
+    <!-- Calculation Start -->
     <div class='kalkulator'>
         <div class='kalkulator-container'>
             <div class='kalkulator-left'>
-                <h1>Income Zakat</h1>
-                <h2>Niah</h2>
+                <h1>Trading Zakat</h1>
+                <h2>Intention (Niah)</h2>
                 <img src='img/niat.png' alt='niat' style='height:auto; width:100%;'>
                 <h3>"Nawaitu an ukhrija zakatadz maali fardhan lillahi ta’ala."</h3>
                 <p>"Meaning: I intend to pay zakat on my wealth because of Allah Ta'ala."</p>
@@ -136,27 +136,26 @@
             <div class='kalkulator-right'>
                 <label>Capital / Year (IDR): </label>
                 <input id="modal" type="text" class="form-control"
-                    placeholder="Enter the capital you spend">
-                <label>Accounts Payable (capital loan debt) (IDR): </label>
+                    placeholder="Enter your capital expenditure">
+                <label>Accounts Payable (Trade Debt) (IDR): </label>
                 <input id="hutangDagang" type="text" class="form-control"
-                    placeholder="Enter the capital debt you borrowed">
+                    placeholder="Enter the trade debt you borrowed">
                 <label>Cash and Profits / Year (IDR): </label>
                 <input id="untung" type="text" class="form-control"
-                    placeholder="Enter the amount of cash and profits you get">
+                    placeholder="Enter the amount of cash and profits you earn">
                 <label>Losses / Year (IDR): </label>
-                <input id="rugi" type="text" class="form-control"
-                    placeholder="Enter the debt or installments you have">
+                <input id="rugi" type="text" class="form-control" placeholder="Enter any losses incurred">
                 <label>Debts / Installments / Basic Needs (IDR): </label>
                 <input id="hutangCicilan" type="text" class="form-control"
-                    placeholder="Enter the debt or installments you have">
+                    placeholder="Enter any debts or installments related to basic needs">
                 <label>Total Trading Wealth (IDR): </label>
                 <input id="tot" class='form-control' type="text"
                     style='color:rgba(0, 0, 0, 0.9); background-color:rgba(255, 255, 255, .5); border: 0;' disabled>
                 <label>Current Gold Price / Gram (IDR): </label>
                 <input id="hargaEmas" type="text" class='form-control'
                     placeholder="Enter the current gold price">
-                <p id="gold" style="color: red; display: none; margin-top: 5px;">Harga Emas tidak boleh 0.</p>
-                <label>Trading Nisab Amount / Year (IDR): </label>
+                <p id="gold" style="color: red; display: none; margin-top: 5px;">Gold price cannot be 0.</p>
+                <label>Trade Nisab Amount / Year (IDR): </label>
                 <input id="nisab" class='form-control' type="text"
                     style='color:rgba(0, 0, 0, .9); background-color:rgba(255, 255, 255, .3); border: 0;' disabled>
                 <button class='button'>Calculate Zakat</button>
@@ -171,6 +170,7 @@
             </div>
         </div>
     </div>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
