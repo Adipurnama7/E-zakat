@@ -1,5 +1,5 @@
 <?php
-
+// masjid update
 namespace App\Http\Controllers;
 
 use App\Models\mesjid;
@@ -46,7 +46,7 @@ class MesjidController extends Controller
                 'RW' => 'required',
 
             ]);
-
+    
             $masjid = new mesjid;
             $masjid->Nama_Masjid = $request->input('Nama_Masjid');
             $masjid->Alamat = $request->input('Alamat');

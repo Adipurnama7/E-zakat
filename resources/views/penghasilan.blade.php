@@ -86,15 +86,14 @@
                             <a href="/#Informasi" class="nav-item nav-link">Information</a>
                             <a href="/#Donasi" class="nav-item nav-link">Donation</a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle"
-                                    data-bs-toggle="dropdown">Calculatorr</a>
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Calculator</a>
                                 <div class="dropdown-menu m-0 rounded-0">
-                                    <a href="zakat_penghasilan" class="dropdown-item">Income Zakat</a>
-                                    <a href="zakat_maal" class="dropdown-item">Maal Zakat</a>
-                                    <a href="perdagangan" class="dropdown-item">Comercial Zakat</a>
-                                    <a href="emas" class="dropdown-item">Gold Zakat</a>
-                                    <a href="tabungan" class="dropdown-item">Sarvings Zakat</a>
-                                    <a href="perusahaan" class="dropdown-item">Company Zakat</a>
+                                    <a href="penghasilan.html" class="dropdown-item">Income Zakat</a>
+                                    <a href="maal.html" class="dropdown-item">Wealth Zakat</a>
+                                    <a href="perdagangan.html" class="dropdown-item">Trade Zakat</a>
+                                    <a href="emas.html" class="dropdown-item">Gold Zakat</a>
+                                    <a href="tabungan.html" class="dropdown-item">Savings Zakat</a>
+                                    <a href="perusahaan.html" class="dropdown-item">Corporate Zakat</a>
                                 </div>
                             </div>
                             <a href="/#Team" class="nav-item nav-link">Our Team </a>
@@ -114,8 +113,8 @@
                 <div class="col-lg-7">
                     <div class="hero-header-inner animated zoomIn">
                         <p class="fs-4 text-dark">WELCOME TO E-Zakat</p>
-                        <h2 class="display-1 mb-5 text-dark">Zakat Calculator</h2>
-                        <a href="/#Donasi" class="btn btn-primary py-3 px-5">Donate</a>
+                        <h2 class="display-1 mb-5 text-dark">Calculator Zakat</h2>
+                        <a href="index.html#Donasi" class="btn btn-primary py-3 px-5">Donate</a>
                     </div>
                 </div>
             </div>
@@ -128,31 +127,25 @@
         <div class='kalkulator-container'>
             <div class='kalkulator-left'>
                 <h1>Income Zakat</h1>
-                <h2>Intention (Niat)</h2>
-                <img src='img/niat.png' alt='niat' style='height:auto; width:100%;'>
-                <h3>"Nawaitu an ukhrija zakatadz maali fardhan lillahi ta’ala."</h3>
-                <p>"Meaning: I intend to pay my obligatory zakat due to Allah."</p>
+                    <h2>Intention of prayer</h2>
+                    <img src='img/niat.png' alt='niat' style='height:auto; width:100%;'>
+                    <h3>"Nawaitu an ukhrija zakatadz maali fardhan lillahi ta’ala."</h3>
+                    <p>"It means: I intend to give the obligatory zakat of my wealth for the sake of Allah Ta'ala."</p>
             </div>
             <div class='kalkulator-right'>
                 <label>Monthly Income (IDR): </label>
-                <input id="penghasilanBulanan" type="text" class="form-control"
-                    placeholder="Enter your monthly income">
+                <input id="penghasilanBulanan" type="text" class="form-control" placeholder="Enter your monthly income">
                 <label>Other Income / Month (IDR): </label>
-                <input id="penghasilanLainnya" type="text" class="form-control"
-                    placeholder="Enter other income you have">
+                <input id="penghasilanLainnya" type="text" class="form-control" placeholder="Enter other income you have">
                 <label>Debts or Installments / Month (IDR): </label>
-                <input id="hutangCicilan" type="text" class="form-control"
-                    placeholder="Enter debts or installments you have">
+                <input id="hutangCicilan" type="text" class="form-control" placeholder="Enter debts or installments you have">
                 <label>Total Income / Month (IDR): </label>
-                <input id="tot" class='form-control' type="text"
-                    style='color:rgba(0, 0, 0, 0.9); background-color:rgba(255, 255, 255, .5); border: 0;' disabled>
+                <input id="tot" class='form-control' type="text" style='color:rgba(0, 0, 0, 0.9); background-color:rgba(255, 255, 255, .5); border: 0;' disabled>
                 <label>Current Gold Price / Gram (IDR): </label>
-                <input id="hargaEmas" type="text" class='form-control'
-                    placeholder="Enter the current gold price">
+                <input id="hargaEmas" type="text" class='form-control' placeholder="Enter the current gold price">
                 <p id="gold" style="color: red; display: none; margin-top: 5px;">Gold price cannot be 0.</p>
                 <label>Nisab Amount / Month (IDR): </label>
-                <input id="nisab" class='form-control' type="text"
-                    style='color:rgba(0, 0, 0, .9); background-color:rgba(255, 255, 255, .3); border: 0;' disabled>
+                <input id="nisab" class='form-control' type="text" style='color:rgba(0, 0, 0, .9); background-color:rgba(255, 255, 255, .3); border: 0;' disabled>
                 <button class='button'>Calculate Zakat</button>
                 <div class="popup" style="display: none;">
                     <div class='popup-zakat'>
@@ -272,12 +265,12 @@
 
                 if (total >= nisabPenghasilan) {
                     document.getElementById('zakatInfo').innerHTML =
-                        'Jumlah zakat penghasilan yang harus Anda bayarkan setiap bulan sebesar:';
+                        'Amount of zakat you need to pay:';
                     document.getElementById('result').innerHTML = formatToCurrency(amount) + ' IDR';
                 } else {
                     document.getElementById('zakatInfo').innerHTML = '';
                     document.getElementById('result').innerHTML =
-                        'Penghasilan Anda belum mencapai Nisab untuk Zakat Penghasilan.';
+                        'Your wealth has not reached the Nisab threshold for Zakat.';
                 }
 
                 document.querySelector('.popup').style.display = 'block';

@@ -1,5 +1,5 @@
 @extends('layouts.main')
-
+<!-- final -->
 @section('content')
     <div class="row">
         <div class="col-12 grid-margin stretch-card">

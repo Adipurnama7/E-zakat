@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 
 
-
+// 
 Route::get('/', function () {
     return view('index');
 });
@@ -50,7 +50,7 @@ Route::get('/daftar', [App\Http\Controllers\Registercontroller::class, 'create']
 Route::post('/daftar', [App\Http\Controllers\Registercontroller::class, 'store']);
 
 Route::resource('zakat', \App\Http\Controllers\ZakatController::class);
-
+// masjid update
 Route::resource('Masjid', \App\Http\Controllers\MesjidController::class);
 
 Route::resource('penyaluran', \App\Http\Controllers\PenyaluranController::class);
