@@ -126,35 +126,30 @@
     <div class='kalkulator'>
         <div class='kalkulator-container'>
             <div class='kalkulator-left'>
-                <h1>Savings Zakat</h1>
-                <h2>Intention (Niat)</h2>
+                <h1>Savings Zakat </h1>
+                <h2>Intention of prayer</h2>
                 <img src='img/niat.png' alt='niat' style='height:auto; width:100%;'>
                 <h3>"Nawaitu an ukhrija zakatadz maali fardhan lillahi ta’ala."</h3>
-                <p>"Meaning: I intend to pay zakat on my savings because of Allah Ta'ala."</p>
+                <p>"It means: I intend to give the obligatory zakat of my wealth for the sake of Allah Ta'ala."</p>
             </div>
             <div class='kalkulator-right'>
                 <label>Initial Balance (beginning of the year) (IDR): </label>
-                <input id="awal" type="text" class="form-control"
-                    placeholder="Enter the initial balance from the last year">
+                <input id="awal" type="text" class="form-control" placeholder="Enter the initial balance of the last year">
                 <label>Final Balance (end of the year) (IDR): </label>
-                <input id="akhir" type="text" class="form-control"
-                    placeholder="Enter the final balance from the last year">
-                <label>Total Balance for the Last Year (IDR): </label>
-                <input id="tot" class='form-control' type="text"
-                    style='color:rgba(0, 0, 0, 0.9); background-color:rgba(255, 255, 255, .5); border: 0;' disabled>
+                <input id="akhir" type="text" class="form-control" placeholder="Enter the final balance of the last year">
+                <label>Total Balance for Last Year (IDR): </label>
+                <input id="tot" class='form-control' type="text" style='color:rgba(0, 0, 0, 0.9); background-color:rgba(255, 255, 255, .5); border: 0;' disabled>
                 <label>Current Gold Price / Gram (IDR): </label>
-                <input id="hargaEmas" type="text" class='form-control'
-                    placeholder="Enter the current gold price">
+                <input id="hargaEmas" type="text" class='form-control' placeholder="Enter the current gold price">
                 <p id="gold" style="color: red; display: none; margin-top: 5px;">Gold price cannot be 0.</p>
-                <label>Savings Nisab Amount / Year (IDR): </label>
-                <input id="nisab" class='form-control' type="text"
-                    style='color:rgba(0, 0, 0, .9); background-color:rgba(255, 255, 255, .3); border: 0;' disabled>
+                <label>Nisab Amount for Savings / Year (IDR): </label>
+                <input id="nisab" class='form-control' type="text" style='color:rgba(0, 0, 0, .9); background-color:rgba(255, 255, 255, .3); border: 0;' disabled>
                 <button class='button'>Calculate Zakat</button>
                 <div class="popup" style="display: none;">
                     <div class='popup-zakat'>
                         <p id="zakatInfo"></p>
                         <h3 id="result"></h3>
-                        <a href='/#Donasi' class='popup-button' id="saveButton">Donate</a>
+                        <a href='index.html#Donasi' class='popup-button' id="saveButton">Donate</a>
                         <button class='popup-button' id="closeButton">Close</button>
                     </div>
                 </div>
@@ -260,12 +255,12 @@
 
                 if (total >= nisabPenghasilan) {
                     document.getElementById('zakatInfo').innerHTML =
-                        'Jumlah zakat penghasilan yang harus Anda bayarkan setiap bulan sebesar:';
+                        'Amount of zakat you need to pay:';
                     document.getElementById('result').innerHTML = formatToCurrency(amount) + ' IDR';
                 } else {
                     document.getElementById('zakatInfo').innerHTML = '';
                     document.getElementById('result').innerHTML =
-                        'Penghasilan Anda belum mencapai Nisab untuk Zakat Penghasilan.';
+                        'Your wealth has not reached the Nisab threshold for Zakat.';
                 }
 
                 document.querySelector('.popup').style.display = 'block';
