@@ -126,13 +126,13 @@
     <div class='kalkulator'>
         <div class='kalkulator-container'>
             <div class='kalkulator-left'>
-                <h1>Zakat Gold</h1>
-                <h2>Intention (Niat)</h2>
-                <img src='img/niat.png' alt='niat' style='height:auto; width:100%;'>
-                <h3>"Nawaitu an ukhrija zakatadz maali fardhan lillahi ta’ala."</h3>
-                <p>"Meaning: I intend to pay my obligatory zakat due to Allah."</p>
+                <h1>Gold Zakat</h1>
+                    <h2>Intention of prayer</h2>
+                    <img src='img/niat.png' alt='niat' style='height:auto; width:100%;'>
+                    <h3>"Nawaitu an ukhrija zakatadz maali fardhan lillahi ta’ala."</h3>
+                    <p>"It means: I intend to give the obligatory zakat of my wealth for the sake of Allah Ta'ala."</p>
             </div>
-            <div class='kalkulator-right'>
+             <div class='kalkulator-right'>
                     <label>Gold Bullion (Grams): </label>
                     <input id="emas" type="text" class="form-control" placeholder="Minimum 85 grams">
                     <label>Jewelry Gold (Grams): </label>
@@ -150,7 +150,8 @@
                             <p id="zakatInfo"></p>
                             <h3 id="result"></h3>
                             <a href='index.html#Donasi' class='popup-button' id="saveButton">Donate</a>
-                            <button class='popup-button' id="closeButton">Close</button>
+                            <button class='popup-button' id="closeButton">Close</button>                 
+                        </div>
                     </div>
                 </div>
             </div>
