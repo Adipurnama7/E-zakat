@@ -21,7 +21,7 @@
     <!-- endinject -->
     <link rel="shortcut icon" href="images/favicon.png" />
     <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
-
+    @laravelPWA
 </head>
 
 <body>

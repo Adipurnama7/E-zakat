@@ -30,7 +30,7 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/kalkulator.css" rel="stylesheet">
-
+    @laravelPWA
 
 
 </head>
@@ -88,15 +88,15 @@
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Calculator</a>
                                 <div class="dropdown-menu m-0 rounded-0">
-                                    <a href="penghasilan.html" class="dropdown-item">Income Zakat</a>
-                                    <a href="maal.html" class="dropdown-item">Wealth Zakat</a>
-                                    <a href="perdagangan.html" class="dropdown-item">Trade Zakat</a>
-                                    <a href="emas.html" class="dropdown-item">Gold Zakat</a>
-                                    <a href="tabungan.html" class="dropdown-item">Savings Zakat</a>
-                                    <a href="perusahaan.html" class="dropdown-item">Corporate Zakat</a>
+                                    <a href="/zakat_penghasilan" class="dropdown-item">Income Zakat</a>
+                                    <a href="/zakat_maal" class="dropdown-item">Wealth Zakat</a>
+                                    <a href="/perdagangan" class="dropdown-item">Trade Zakat</a>
+                                    <a href="/emas" class="dropdown-item">Gold Zakat</a>
+                                    <a href="/tabungan" class="dropdown-item">Savings Zakat</a>
+                                    <a href="/perusahaan" class="dropdown-item">Corporate Zakat</a>
                                 </div>
                             </div>
-                            <a href="/#Team" class="nav-item nav-link">Our Team </a>
+                            {{-- <a href="/#Team" class="nav-item nav-link">Our Team </a> --}}
                             <a href="/#Kontak" class="nav-item nav-link">Contact</a>
                         </div>
                     </div>
@@ -343,7 +343,7 @@
                 <div class="border-top border-secondary pb-4"></div>
                 <div class="row">
                     <div class="col-md-6 text-center text-md-end">
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">Group 5</a>
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">Group 2</a>
                     </div>
                 </div>
             </div>

@@ -115,12 +115,12 @@
                     <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021. <a
                             href="" target="_blank"> </a>
                         . All rights reserved.</span>
-                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Team 5 <i
+                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Team 2 <i
                             class="ti-heart text-danger ml-1"></i></span>
                 </div>
                 <div class="d-sm-flex justify-content-center justify-content-sm-between">
                     <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a
-                            href="" target="_blank">Team 5</a></span>
+                            href="" target="_blank">Team 2</a></span>
                 </div>
             </footer>
             <!-- partial -->

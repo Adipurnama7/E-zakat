@@ -77,3 +77,8 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 Route::post('/masuk', [App\Http\Controllers\LoginController::class, 'login']);
+
+
+Route::get('/offline', function () {
+    return view('modules/laravelpwa/offline');
+});
